@@ -50,5 +50,6 @@ E4.q            // dotted quarter note
 // CLEF
 //
 |L| ::STRING || // Lyrical clef
+|| :: MUSIC || // Treble clef by default
 |T| ::MUSIC || // Treble clef
 |B| ::MUSIC || // Bass clef
