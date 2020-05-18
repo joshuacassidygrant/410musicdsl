@@ -1,0 +1,21 @@
+Title: "Marry Had a Little  Lamb"
+Time: "4/4"
+Tempo: 120
+Arranged By: "Eduardo Garza"
+Key: "CMaj"
+
+melody = [
+  || E4q D4q C4q D4q ||
+  || E4q E4q E4h ||
+  || D4q D4q D4h ||
+  || E4q E4q E4h ||
+  || E4q D4q C4q D4q ||
+  || E4q E4q E4q C4q ||
+  || D4q D4q E4q D4q C4q ||
+]
+
+// Plays the meolody twice
+main = [
+  || $(melody) ||
+  || $(melody) ||
+]

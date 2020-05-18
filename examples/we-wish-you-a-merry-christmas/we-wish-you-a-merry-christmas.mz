@@ -1,0 +1,45 @@
+Title: "We Wish You a Merry Christmas"
+Time: "3/4"
+Tempo: 120
+Composer: "Arthur Warrell"
+Year: "December 6, 1935"
+Arranged By: "Eduardo Garza"
+Key: "GMaj"                     // GMaj contains F# by default for all F notes
+
+main = [
+  |L| We ||
+  |T| D4q ||
+  |B| Rq ||
+
+  |L| wish you a mer-ry ||
+  |T| G4q G4e A4e G4e F4e ||
+  |B| B2.h ||
+
+  |L| Christ-mas, we ||
+  |T| E4q E4q E4q ||
+  |B| C3.h ||
+
+  |L| wish you a mer-ry ||
+  |T| A4q A4e B4e A4e G4e ||
+  |B| C#3.h ||
+
+  |L| Christ-mas, we ||
+  |T| F4q D4q D4q ||
+  |B| D3.h ||
+
+  |L| wish you a mer-ry ||
+  |T| B4q B4e C4e B4e A4e || 
+  |B| D#3.h ||
+
+  |L| Christ-mas, and a ||
+  |T| G4q E4q D4e D4e
+  |B| E3h B2q ||
+
+  |L| hap-py New ||
+  |T| Chord(C4h,E4q) A4q Chord(C4q, F4q) 
+  |B| C3h D3q ||
+
+  |L| Year. ||
+  |T| Chord(B3.h, G4.h) ||
+  |B| G2.h ||
+]

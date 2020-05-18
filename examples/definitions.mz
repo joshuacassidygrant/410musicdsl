@@ -1,0 +1,54 @@
+// Definitions for .mz
+
+// this is a comment
+
+/* 
+  this is a 
+  multi-line comment
+*/
+
+// METADATA
+Title: ::STRING
+
+Time?: "3/4"
+  Defaults to "4/4"
+
+Tempo?: 120
+  Defaults to 120
+
+Composer?: ::STRING
+
+Year?: ::STRING | ::NUMBER
+
+Arranged By?: ::STRING
+
+Key?: ::STRING {CMaj, DMaj, ... }
+  Defaults to CMaj
+
+//
+// FULL - NOTES
+//
+C4              // C-4 note
+C#4             // C-sharp-4 note
+
+//
+// TYPES OF NOTES
+// 
+w               // whole note
+h               // half note
+q               // quarter note
+e               // eighth note
+s               // sixteenth note
+
+//
+// SPECIAL KINDS OF NOTES
+//
+(E4q, F4q)      // tied notes
+E4.q            // dotted quarter note
+
+//
+// CLEF
+//
+|L| ::STRING || // Lyrical clef
+|T| ::MUSIC || // Treble clef
+|B| ::MUSIC || // Bass clef
