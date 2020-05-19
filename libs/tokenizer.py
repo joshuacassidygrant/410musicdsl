@@ -1,18 +1,9 @@
 import re
 
-test = open("test-input.mz", "r")
-program = test.read()
-print(program)
-
-literals = ["Title:", "Time:", "Tempo:", "Composer:", "Arranged by:", "Key:", "seq", "main", "= [", "|T|", "|B|", "||", "]", ","]
-
 class Tokenizer:
-
-  def __init__(self, program):
+  def __init__(self, program, literals):
     self.program = program
-
-  def printProgram(self):
-    print("======Program======\n" + self.program)
+    self.literals = literals
 
   def tokenize(self):
     tokenizedProgram = self.program
@@ -22,7 +13,7 @@ class Tokenizer:
     tokenizedProgram = tokenizedProgram.strip()
     print(tokenizedProgram)
 
-    for l in literals:
+    for l in self.literals:
       tokenizedProgram = tokenizedProgram.replace(l, "_" + l + "_")
     
     tokenizedProgram = tokenizedProgram.replace("__", "_")
@@ -32,15 +23,11 @@ class Tokenizer:
       tokenizedProgram = tokenizedProgram[1:]
 
     tokens = tokenizedProgram.split('_')
-    for t in tokens:
-      print(t)
 
     tokens = [t.strip() for t in tokens]
     tokens = [t for t in tokens if t != '']
     print(tokens)
-    return tokens
- 
 
-t = Tokenizer(program)
-t.printProgram()
-t.tokenize()
+  def printProgram(self):
+    print("=====Program=====n" + self.program)
+
