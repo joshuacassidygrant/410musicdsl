@@ -13,7 +13,7 @@ KEY     ::= "Key:" KEYOF
 
 SEQUENCE::= "seq" STRING "= [" BAR* "]"         // Where STRING is new sequence name
 BAR     ::= CLEF* | "$(" STRING  ")"            // Where STRING refs sequence name
-CLEF    ::= ("|L|" STRING "||" | "|" ("T"|"B") NOTE* "||"
+CLEF    ::= ("|L|" STRING "||" | "|" ("T"|"B") ((NOTE | CHORD),)* "||"
 
 NOTE    ::= ([A-G](#|b|)[0-8]\.?(s|e|q|h|w))    // Should capture most notes, including dotted
 CHORD   ::= "Ch(" NOTE* ")"                     // TODO: May want to change this for consistency
