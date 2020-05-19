@@ -1,0 +1,25 @@
+COMPOSITION = METADATA SEQUENCE*
+
+METADATA::= META*
+
+META    ::= (TITLE | TIME | TEMPO | COMPOSER | YEAR | ARRANGER | KEY)
+
+TITLE   ::= "Title:" STRING
+TIME    ::= "Time:" TIMESIG
+TEMPO   ::= "Tempo:" INTEGER
+COMPOSER::= "Composer:" STRING
+ARRANGER::= "Arranged by:" STRING
+KEY     ::= "Key:" KEYOF
+
+SEQUENCE::= "seq" STRING "= [" BAR* "]"         // Where STRING is new sequence name
+BAR     ::= CLEF* | "$(" STRING  ")"            // Where STRING refs sequence name
+CLEF    ::= ("|L|" STRING "||" | "|" ("T"|"B") NOTE* "||"
+
+NOTE    ::= ([A-G](#|b|)[0-8]\.?(s|e|q|h|w))    // Should capture most notes, including dotted
+CHORD   ::= "Ch(" NOTE* ")"                     // TODO: May want to change this for consistency
+
+TIMESIG ::= ("4/4" | "3/4")                     // Would not be hard to extend this to any integers sepped by /, but do we want to support that? NO.
+KEYOF ::= ([A-G](b|#|)(maj|min))                //regex to capture A-G, #/b/natural, Maj/min
+STRING ::= ([^"]*)                              // Should capture strings in quotation marks?
+INTEGER ::= \d+                                 // Should match an integer
+COMMENT ::= "//" STRING                         // TODO: Need to find a way to ignore these, since they can show up anywhere...
