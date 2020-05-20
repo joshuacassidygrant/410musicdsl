@@ -1,9 +1,14 @@
 import re
 
 class Tokenizer:
+  tokenizer = None
+
   def __init__(self, program, literals):
     self.program = program
     self.literals = literals
+
+  def getTokenizer(self):
+    return Tokenizer
 
   def tokenize(self):
     tokenizedProgram = self.program
