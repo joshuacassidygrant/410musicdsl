@@ -1,11 +1,23 @@
 import re
 
 class Tokenizer:
-  tokenizer = None
+  program = None
+  theTokenizer = None
+  literals = None
+  tokens = None
+  currentToken = 0
 
   def __init__(self, program, literals):
     self.program = program
     self.literals = literals
+
+  @staticmethod
+  def initProgram(program):
+    Tokenizer.program = program
+
+  def makeTokenizer(self, program, literals):
+    if (Tokenizer.theTokenizer == None):
+      theTokenizer = Tokenizer(program, literals)
 
   def getTokenizer(self):
     return Tokenizer
@@ -33,6 +45,8 @@ class Tokenizer:
     tokens = [t for t in tokens if t != '']
     print(tokens)
 
-  def printProgram(self):
-    print("=====Program=====n" + self.program)
+  @staticmethod
+  def printProgram():
+    print("WAS CALLED")
+    print("=====Program=====/n" + Tokenizer.program)
 
