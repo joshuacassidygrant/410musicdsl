@@ -19,9 +19,10 @@ class Tokenizer:
   @staticmethod
   def makeTokenizer(program, literals):
     if (Tokenizer.theTokenizer == None):
-      theTokenizer = Tokenizer(program, literals)
+      Tokenizer.theTokenizer = Tokenizer(program, literals)
 
-  def getTokenizer(self):
+  @staticmethod
+  def getTokenizer():
     return Tokenizer.theTokenizer
 
   def tokenize(self):
@@ -79,7 +80,6 @@ class Tokenizer:
   def moreTokens(self):
     return Tokenizer.currentToken < len(Tokenizer.tokens)
 
-  @staticmethod
-  def printProgram():
+  def printProgram(self):
     print("=====Program=====\n" + Tokenizer.program)
 
