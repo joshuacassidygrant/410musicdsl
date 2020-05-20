@@ -8,14 +8,16 @@ class Tokenizer:
   currentToken = 0
 
   def __init__(self, program, literals):
-    self.program = program
-    self.literals = literals
+    Tokenizer.program = program
+    Tokenizer.literals = literals
+    self.tokenize()
 
   @staticmethod
   def initProgram(program):
     Tokenizer.program = program
 
-  def makeTokenizer(self, program, literals):
+  @staticmethod
+  def makeTokenizer(program, literals):
     if (Tokenizer.theTokenizer == None):
       theTokenizer = Tokenizer(program, literals)
 
@@ -23,27 +25,28 @@ class Tokenizer:
     return Tokenizer
 
   def tokenize(self):
-    tokenizedProgram = self.program
-    print(tokenizedProgram)
+    tokenizedProgram = Tokenizer.program
+    print("1: " + tokenizedProgram)
 
     tokenizedProgram = tokenizedProgram.replace('\n', '')
     tokenizedProgram = tokenizedProgram.strip()
-    print(tokenizedProgram)
+    print("2: " + tokenizedProgram)
 
-    for l in self.literals:
+    for l in Tokenizer.literals:
       tokenizedProgram = tokenizedProgram.replace(l, "_" + l + "_")
     
     tokenizedProgram = tokenizedProgram.replace("__", "_")
-    print(tokenizedProgram)
+    print("3: " + tokenizedProgram)
 
     if (len(tokenizedProgram) > 0 and tokenizedProgram[0] == '_'):
       tokenizedProgram = tokenizedProgram[1:]
 
     tokens = tokenizedProgram.split('_')
-
     tokens = [t.strip() for t in tokens]
     tokens = [t for t in tokens if t != '']
-    print(tokens)
+    print("4: ", tokens)
+    Tokenizer.tokens = tokens
+    print("5: ", Tokenizer.tokens)
 
   @staticmethod
   def printProgram():
