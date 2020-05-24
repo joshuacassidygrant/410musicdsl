@@ -1,4 +1,4 @@
-COMPOSITION = METADATA SEQUENCE*
+COMPOSITION ::= METADATA DECLARATION*
 METADATA::= META*
 META    ::= (TITLE | TIME | TEMPO | COMPOSER | YEAR | ARRANGER | KEY)
 TITLE   ::= "Title:" STRING
@@ -8,10 +8,12 @@ COMPOSER::= "Composer:" STRING
 ARRANGER::= "Arranged by:" STRING
 KEY     ::= "Key:" KEYOF
 
+DECLARATION ::= (SET_SEQUENCE | SET_CHORD)
+
 SEQUENCE ::= "{" STRING "}(" INTEGER ")" 	                                        // Where STRING is seq variable and int is times to play it.
 SET_SEQUENCE::= "seq " STRING "= [" ((BAR | SEQUENCE)"-")*(BAR | SEQUENCE)? "]"     // Sets new sequence variable with name STRING
 
-BAR     ::= (STAFF*) | "$(" STRING  ")"                                             // Where STRING refers to a sequence variable
+BAR     ::= STAFF*                                             
 STAFF   ::= ("||" | "|" ("T"|"B") "|" (SOUND ,)* SOUND"||"
 
 PITCH	 ::=  ([A-G](#|b|)[0-8]
