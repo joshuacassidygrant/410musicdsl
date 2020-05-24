@@ -1,9 +1,6 @@
 COMPOSITION = METADATA SEQUENCE*
-
 METADATA::= META*
-
 META    ::= (TITLE | TIME | TEMPO | COMPOSER | YEAR | ARRANGER | KEY)
-
 TITLE   ::= "Title:" STRING
 TIME    ::= "Time:" TIMESIG
 TEMPO   ::= "Tempo:" INTEGER
@@ -11,15 +8,21 @@ COMPOSER::= "Composer:" STRING
 ARRANGER::= "Arranged by:" STRING
 KEY     ::= "Key:" KEYOF
 
-SEQUENCE::= "seq" STRING "= [" BAR* "]"         // Where STRING is new sequence name
-BAR     ::= CLEF* | "$(" STRING  ")"            // Where STRING refs sequence name
-CLEF    ::= ("|L|" STRING "||" | "|" ("T"|"B") NOTE* "||"
+SEQUENCE ::= "{" STRING "}(" INTEGER ")" 	                                        // Where STRING is seq variable and int is times to play it.
+SET_SEQUENCE::= "seq " STRING "= [" ((BAR | SEQUENCE)"-")*(BAR | SEQUENCE)? "]"     // Sets new sequence variable with name STRING
 
-NOTE    ::= ([A-G](#|b|)[0-8]\.?(s|e|q|h|w))    // Should capture most notes, including dotted
-CHORD   ::= "Ch(" NOTE* ")"                     // TODO: May want to change this for consistency
+BAR     ::= (STAFF*) | "$(" STRING  ")"                                             // Where STRING refers to a sequence variable
+STAFF   ::= ("||" | "|" ("T"|"B") "|" (SOUND ,)* SOUND"||"
 
-TIMESIG ::= ("4/4" | "3/4")                     // Would not be hard to extend this to any integers sepped by /, but do we want to support that? NO.
-KEYOF ::= ([A-G](b|#|)(maj|min))                //regex to capture A-G, #/b/natural, Maj/min
-STRING ::= ([^"]*)                              // Should capture strings in quotation marks?
-INTEGER ::= \d+                                 // Should match an integer
-COMMENT ::= "//" STRING                         // TODO: Need to find a way to ignore these, since they can show up anywhere...
+PITCH	 ::=  ([A-G](#|b|)[0-8]
+LENGTH ::=  \.?(s|e|q|h|w)) 
+NOTE    ::= PITCH LENGTH
+ 
+SET_CHORD   ::=  "chord " STRING "= {" (PITCH "-")* PITCH "}"                       // Sets a new chord variable
+CHORD ::= "{" STRING "}" LENGTH		                                                // Where STRING refers to chord variable
+SOUND ::= NOTE | CHORD
+
+TIMESIG ::= ("4/4" | "3/4")
+KEYOF   ::= ([A-G](b|#|)(maj|min))     
+STRING  ::= ([^"]*)                               
+INTEGER ::= \d+ 
