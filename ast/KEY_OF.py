@@ -8,6 +8,6 @@ class KEY_OF(Node):
 
     def parse(self):
         self.tokenizer.getAndCheckNext("\"")
-        # todo
+        self.tokenizer.getAndCheckNext("([A-G](b|#|)(maj|min))")
         self.tokenizer.getAndCheckNext("\"")
         return

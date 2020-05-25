@@ -34,14 +34,13 @@ class METADATA(Node):
         while (self.tokenizer.checkNext() and not self.tokenizer.checkToken("(seq|chord)")):
 
             nextToken = self.tokenizer.checkNext()
-            print(nextToken)
             metaType = metamap.get(nextToken, None)
-            print(metaType)
             if metaType == None:
                 print("Invalid meta " + nextToken)
-            meta = metaType()
-            meta.parse()
-            self.metas.append(meta)
+            else:
+                meta = metaType()
+                meta.parse()
+                self.metas.append(meta)
 
 
 

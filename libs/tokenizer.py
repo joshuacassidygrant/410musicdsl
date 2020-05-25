@@ -75,7 +75,8 @@ class Tokenizer:
   def getAndCheckNext(self, regexp):
     s = self.getNext()
     if not bool(re.match(regexp, s)):
-      raise Exception("Unexpected next token for Parsing! Expected something matching: " + regexp + " but got: " + s) 
+      message = "Unexpected next token for Parsing! Expected something matching: " + regexp + " but got: " + s
+      raise Exception(message) 
     print("matched: "+s+"  to  "+regexp)
     return s
   

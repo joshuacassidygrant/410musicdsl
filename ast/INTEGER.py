@@ -4,7 +4,8 @@ from libs.node import Node
 class INTEGER(Node):
 
     # FIELDS:
+    # value
 
     def parse(self):
-        #TODO
+        self.value = self.tokenizer.getAndCheckNext("\d+")
         return
