@@ -1,6 +1,6 @@
 
 from libs.tokenizer import Tokenizer
-from node import Program, Node
+from temp import Program, Node
 
 def main():
   literals = ["Title:", "Time:", "Tempo:", "Composer:", "Arranged by:", "Key:", "{", "}", "(", ")", "seq", "main", "= [", "|T|", "|B|", "||", "]", ",", "\"", "//", "$(", ")"]
