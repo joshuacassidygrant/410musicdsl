@@ -1,4 +1,5 @@
-from Node import Node
+from libs.node import Node
+from ast.METADATA import METADATA
 
 # COMPOSITION ::= METADATA DECLARATION*
 
@@ -9,5 +10,12 @@ class COMPOSITION(Node):
     # list of declarations
 
     def parse(self):
-        #TODO
+        self.metadata = METADATA()
+        self.declarations = []
+
+        self.metadata.parse()
+
+        for declaration in self.declarations:
+            declaration.parse()
+
         return

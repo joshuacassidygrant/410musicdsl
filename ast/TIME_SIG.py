@@ -1,5 +1,4 @@
-from Node import Node
-
+from libs.node import Node
 # TIMESIG ::= ("4/4" | "3/4")
 
 

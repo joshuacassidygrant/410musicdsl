@@ -1,5 +1,4 @@
-from Node import Node
-
+from libs.node import Node
 # SET_CHORD   ::=  "chord " STRING "= {" (PITCH "-")* PITCH "}"  
 
 class SET_CHORD(Node):

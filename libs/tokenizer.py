@@ -23,6 +23,7 @@ class Tokenizer:
 
   @staticmethod
   def getTokenizer():
+    print(Tokenizer.theTokenizer)
     return Tokenizer.theTokenizer
 
   def tokenize(self):
@@ -64,6 +65,7 @@ class Tokenizer:
       Tokenizer.currentToken += 1
     else:
       token = "NULLTOKEN"
+    return token
 
   def checkToken(self, regexp):
     s = self.checkNext()

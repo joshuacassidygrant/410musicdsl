@@ -1,5 +1,4 @@
-from Node import Node
-
+from libs.node import Node
 # SET_SEQUENCE::= "seq " STRING "= [" ((BAR | SEQUENCE)"-")*(BAR | SEQUENCE)? "]"     // Sets new sequence variable with name STRING
 
 class SEQUENCE(Node):

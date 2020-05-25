@@ -1,5 +1,4 @@
-from Node import Node
-
+from libs.node import Node
 # STAFF ::= ("||" | "|" ("T"|"B") "|" (SOUND ,)* SOUND"||" 
 
 class STAFF(Node):

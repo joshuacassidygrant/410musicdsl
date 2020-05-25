@@ -1,4 +1,5 @@
-from Node import Node
+from libs.node import Node
+from ast.STRING import STRING
 
 #ARRANGER::= "Arranged by:" STRING
 
@@ -8,5 +9,7 @@ class ARRANGER(Node):
     # arranger
 
     def parse(self):
-        #TODO
+        self.tokenizer.getAndCheckNext("Arranged by:")
+        self.arranger = STRING()
+        self.arranger.parse()
         return
