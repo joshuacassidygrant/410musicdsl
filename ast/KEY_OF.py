@@ -4,7 +4,10 @@ from libs.node import Node
 class KEY_OF(Node):
 
     # FIELDS:
+    # value
 
     def parse(self):
-        #TODO
+        self.tokenizer.getAndCheckNext("\"")
+        # todo
+        self.tokenizer.getAndCheckNext("\"")
         return

@@ -5,7 +5,7 @@ def main():
   literals = ["Title:", "Time:", "Tempo:", "Composer:", "Arranged by:", "Key:", "{", "}", "(", ")", "seq", "main", "= [", "|T|", "|B|", "||", "]", ",", "\"", "//", "$(", ")"]
   program = open("test-input-p.mz", "r").read()
   Tokenizer.makeTokenizer(program, literals)
-  p = COMPOSITION()
+  p = COMPOSITION() 
   print("=====Done tokenizing=====\n")
   p.parse()
 

@@ -7,5 +7,7 @@ class TIME_SIG(Node):
     # FIELDS:
 
     def parse(self):
-        #TODO
+        self.tokenizer.getAndCheckNext("\"")
+        self.value = self.tokenizer.getAndCheckNext("(4/4 | 3/4)")
+        self.tokenizer.getAndCheckNext("\"")
         return

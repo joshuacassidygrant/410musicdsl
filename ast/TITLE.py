@@ -1,9 +1,14 @@
 from libs.node import Node
-class TITLE(Node):
+from ast.META import META
+from ast.STRING import STRING
+
+class TITLE(META):
 
     # FIELDS:
     # title
 
     def parse(self):
-        #TODO
+        self.tokenizer.getAndCheckNext("Title:")
+        self.title = STRING()
+        self.title.parse()
         return
