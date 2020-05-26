@@ -17,7 +17,6 @@ metamap = {
     "Composer:": COMPOSER,
     "Year:": YEAR,
     "Key:": KEY
-
 }
 
 class METADATA(Node):

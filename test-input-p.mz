@@ -5,3 +5,17 @@ Composer: "Ludwig Van Beethoven"
 Year: 1824
 Arranged by: "Eduardo Garza"
 Key: "Cmaj"
+
+seq main = [
+  |T| E4q, E4q, F4q, G4q || 
+  |B| C3w ||
+
+  |T| G4q, F4q, E4q, D4q ||
+  |B| G2w ||
+
+  |T| C4q, C4q, D4q, E4q  ||
+  |B| C3w ||
+
+  |T| E4.q,  D4e, D4h ||
+  |B| G2w ||
+]

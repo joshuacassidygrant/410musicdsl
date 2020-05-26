@@ -1,7 +1,7 @@
 from libs.node import Node
 # SET_SEQUENCE::= "seq " STRING "= [" ((BAR | SEQUENCE)"-")*(BAR | SEQUENCE)? "]"     // Sets new sequence variable with name STRING
 
-class SEQUENCE(Node):
+class SET_SEQUENCE(Node):
 
     # FIELDS:
     # list of bars or sequences
