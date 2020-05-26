@@ -1,5 +1,4 @@
-from Node import Node
-
+from libs.node import Node
 # SEQUENCE ::= "{" STRING "}(" INTEGER ")"  
 # Where STRING is seq variable and int is times to play it.
 

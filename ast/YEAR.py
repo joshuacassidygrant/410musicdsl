@@ -1,13 +1,14 @@
 from libs.node import Node
 from ast.INTEGER import INTEGER
+from ast.META import META
 
-class TEMPO(Node):
+class YEAR(META):
     
     # FIELDS:
-    # tempo
+    # year
 
     def parse(self):
-        self.tokenizer.getAndCheckNext("Tempo:")
+        self.tokenizer.getAndCheckNext("Year:")
         self.tempo = INTEGER()
         self.tempo.parse()
         return

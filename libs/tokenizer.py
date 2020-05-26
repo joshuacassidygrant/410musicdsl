@@ -23,6 +23,7 @@ class Tokenizer:
 
   @staticmethod
   def getTokenizer():
+    print(Tokenizer.theTokenizer)
     return Tokenizer.theTokenizer
 
   def tokenize(self):
@@ -64,6 +65,7 @@ class Tokenizer:
       Tokenizer.currentToken += 1
     else:
       token = "NULLTOKEN"
+    return token
 
   def checkToken(self, regexp):
     s = self.checkNext()
@@ -73,7 +75,8 @@ class Tokenizer:
   def getAndCheckNext(self, regexp):
     s = self.getNext()
     if not bool(re.match(regexp, s)):
-      raise Exception("Unexpected next token for Parsing! Expected something matching: " + regexp + " but got: " + s) 
+      message = "Unexpected next token for Parsing! Expected something matching: " + regexp + " but got: " + s
+      raise Exception(message) 
     print("matched: "+s+"  to  "+regexp)
     return s
   

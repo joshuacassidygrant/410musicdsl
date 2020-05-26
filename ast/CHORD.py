@@ -1,5 +1,4 @@
-from Node import Node
-
+from libs.node import Node
 # CHORD ::= "{" STRING "}" LENGTH		                                                // Where STRING refers to chord variable
 
 

@@ -1,7 +1,14 @@
-from Node import Node
+from libs.node import Node
+from ast.TIME_SIG import TIME_SIG
+from ast.META import META
 
-class TIME(Node):
+class TIME(META):
+
+    # FIELDS:
+    # time
 
     def parse(self):
         self.tokenizer.getAndCheckNext("Time:")
-        self.time = self.tokenizer.getAndCheckNext('([^"]*)')
+        self.time = TIME_SIG()
+        self.time.parse()
+        return

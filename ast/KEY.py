@@ -1,7 +1,7 @@
-from Node import Node
+from libs.node import Node
+from ast.KEY_OF import KEY_OF
 
 # KEY     ::= "Key:" KEYOF
-
 
 class KEY(Node):
 
@@ -9,5 +9,7 @@ class KEY(Node):
     # key
 
     def parse(self):
-        #TODO
+        self.tokenizer.getAndCheckNext("Key:")
+        self.key = KEY_OF()
+        self.key.parse()
         return

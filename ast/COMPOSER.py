@@ -1,4 +1,6 @@
-from Node import Node
+from libs.node import Node
+from ast.STRING import STRING
+from libs.tokenizer import Tokenizer
 
 #COMPOSER::= "Composer:" STRING
 
@@ -8,5 +10,7 @@ class COMPOSER(Node):
     # composer
 
     def parse(self):
-        #TODO
+        self.tokenizer.getAndCheckNext("Composer:")
+        self.composer = STRING()
+        self.composer.parse()
         return

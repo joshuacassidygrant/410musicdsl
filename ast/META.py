@@ -1,4 +1,4 @@
-from Node import Node
+from libs.node import Node
 
 class META(Node):
 

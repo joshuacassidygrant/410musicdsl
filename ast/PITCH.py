@@ -1,5 +1,4 @@
-from Node import Node
-
+from libs.node import Node
 # PITCH	 ::=  ([A-G](#|b|)[0-8]
 
 class STAFF(Node):

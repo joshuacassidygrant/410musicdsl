@@ -1,5 +1,4 @@
-from Node import Node
-
+from libs.node import Node
 # NOTE    ::= PITCH LENGTH
 
 class NOTE(Node):
