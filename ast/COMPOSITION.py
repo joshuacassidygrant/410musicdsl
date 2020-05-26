@@ -1,6 +1,7 @@
 from libs.node import Node
 from ast.METADATA import METADATA
 from ast.DECLARATION import DECLARATION
+from ast.PLAY import PLAY
 
 # COMPOSITION ::= METADATA DECLARATION*
 
@@ -17,15 +18,16 @@ class COMPOSITION(Node):
 
         self.metadata.parse()
 
-        while not self.tokenizer.checkNext("play"):
+        while not self.tokenizer.checkToken("play"):
             token = self.tokenizer.getAndCheckNext("(seq|chord)")
-            print(token)
-            #declaration.parse()
+            declaration = DECLARATION.makeDec(token)
+            declaration.parse()
+            self.declarations.append(declaration)
 
-        self.tokenizer.getAndCheckNext("play")
-        self.play = self.tokenizer.getNext()
+        self.play = PLAY()
+        self.play.parse()
 
-        if (self.tokenizer.moreTokens):
+        if (self.tokenizer.moreTokens()):
             print("Still have tokens after play statement!")
 
         return

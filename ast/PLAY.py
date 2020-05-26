@@ -1,4 +1,5 @@
 from libs.node import Node
+from ast.NAME import NAME
 # PLAY    ::= play NAME
 
 class PLAY(Node):
@@ -7,5 +8,7 @@ class PLAY(Node):
     # name
 
     def parse(self):
-        # TODO
+        self.tokenizer.getAndCheckNext("play")
+        self.name = NAME()
+        self.name.parse()
         return

@@ -19,3 +19,5 @@ seq main = [
   |T| E4.q,  D4e, D4h ||
   |B| G2w ||
 ]
+
+play main
