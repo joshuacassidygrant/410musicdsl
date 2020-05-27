@@ -15,8 +15,8 @@ class SEQUENCE(Node):
         self.name = NAME()
         self.name.parse()
         self.tokenizer.getAndCheckNext("}")
-        self.tokenizer.getAndCheckNext("(")
+        self.tokenizer.getAndCheckNext("\\(")
         self.repeats = INTEGER()
         self.repeats.parse()
-        self.tokenizer.getAndCheckNext(")")
+        self.tokenizer.getAndCheckNext("\\)")
         return

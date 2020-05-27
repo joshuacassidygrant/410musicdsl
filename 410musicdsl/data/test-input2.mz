@@ -14,6 +14,16 @@ melody = [
   || D4q, D4q, E4q, D4q, C4q ||
 ]
 
+melody2 = [
+  || E4q, D4q, C4q, D4q ||
+  || E4q, E4q, E4h ||
+  || D4q, D4q, D4h ||
+  || E4q, E4q, E4h ||
+  || E4q, D4q, C4q, D4q ||
+  || E4q, E4q, E4q, C4q ||
+  || D4q, D4q, E4q, D4q, C4q ||
+]
+
 // Plays the meolody twice
 main = [
   || $(melody) ||

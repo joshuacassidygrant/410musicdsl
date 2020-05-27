@@ -14,7 +14,7 @@ def main():
     literals = [
         "Title:", "Time:", "Tempo:", "Composer:", "Arranged by:",
         "Key:", "Year:", "{", "}", "(", ")", "seq", "play", "chord",
-        "= [", "|T|", "|B|", "||", "]", ",", "\"", "//", "$(", ")"
+        "= [", "|T|", "|B|", "||", "]", ",", "\"", "//", "$(", ")", "("
     ]
 
     # Tokenizing

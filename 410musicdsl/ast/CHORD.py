@@ -16,4 +16,5 @@ class CHORD(Node):
         self.name.parse()
         self.tokenizer.getAndCheckNext("}")
         self.length = LENGTH()
+        self.length.parse()
         return
