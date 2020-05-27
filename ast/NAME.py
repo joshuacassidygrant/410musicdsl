@@ -1,8 +1,9 @@
 from libs.node import Node
-# NAME    ::= 
+# NAME    ::=
+
 
 class NAME(Node):
-    
+
     # FIELDS
     # value
 
