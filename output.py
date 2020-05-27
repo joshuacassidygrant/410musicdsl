@@ -4,19 +4,23 @@ import mingus.extra.lilypond as LilyPond
 from mingus.midi import midi_file_out
 from input import Input
 
-# NOTE: must install lilypond.exe (for Windiws) and pip install mingus before running
-# LilyPond in the $PATH is needed.
+# NOTE: Must install lilypond.exe (for Windows), LilyPond in the $PATH is needed, and pip install mingus before running
 
 # Create midi file
-def createMidi(noteList):
-    if not noteList:
-        print("Invalid: List of notes is empty")
+def createMidi(input):
+    if not input:
+        print("Invalid: input is empty")
     else:
-        # nc = NoteContainer(noteList)
-        # midi_file_out.write_NoteContainer("music1.mid", nc)
-        for note in noteList:
-            b + note
-        midi_file_out.write_Bar("music.mid", b, 120, 1)
+        c = Composition()
+        subtitle = "time = " + input.time + ", tempo = " + input.tempo + ", composer = " + input.composer + ", year = " + input.year + ", key = " + input.key
+        c.set_author(input.arrangedBy, 'author@email.com')
+        title = input.title
+        c.set_title(title, subtitle)
+        t = createTrack(input.body)
+        c.add_track(t)
+        title += ".mid"
+        print("Creating a Midi file")
+        midi_file_out.write_Composition(title, c)
 
 # Create music sheet PDF
 def createMusicsheet(input):
@@ -43,15 +47,16 @@ def createTrack(body):
         if meter:
             b.set_meter(meter)
         for item in bar:
-            #TODO: major and minor
             (note, duration) = item
             b.place_notes(note, duration)
         t += b
     return t
 
-def main():
-    example = Input()
-    createMusicsheet(example)
+# Call example
+# def main():
+#     example = Input()
+#     createMusicsheet(example)
+#     createMidi(example)
 
 if __name__ == "__main__":
     main()
