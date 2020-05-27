@@ -5,6 +5,7 @@ from ast.PLAY import PLAY
 
 # COMPOSITION ::= METADATA DECLARATION*
 
+
 class COMPOSITION(Node):
 
     # FIELDS:

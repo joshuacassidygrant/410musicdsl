@@ -1,7 +1,8 @@
 from libs.node import Node
 from ast.STRING import STRING
 
-#ARRANGER::= "Arranged by:" STRING
+# ARRANGER::= "Arranged by:" STRING
+
 
 class ARRANGER(Node):
 

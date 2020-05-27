@@ -1,5 +1,7 @@
 from libs.node import Node
 from ast.NAME import NAME
+from ast.BAR import BAR
+from ast.SEQUENCE import SEQUENCE
 # SET_SEQUENCE::= "seq " STRING "= [" ((BAR | SEQUENCE)"-")*(BAR | SEQUENCE)? "]"     // Sets new sequence variable with name STRING
 
 class SET_SEQUENCE(Node):
@@ -16,8 +18,12 @@ class SET_SEQUENCE(Node):
         #TODO parse internal sequence
         self.tokenizer.getAndCheckNext("= \[")
         while not self.tokenizer.checkToken("]"):
-            #TODO actually build up bars
-            self.tokenizer.getNext()
+            if self.tokenizer.checkToken("\|(T|B)\|"):
+                bar = BAR()
+                bar.parse()
+            elif self.tokenizer.checkToken("{"):
+                seq = SEQUENCE()
+                seq.parse()
         
         self.tokenizer.getNext()
         return

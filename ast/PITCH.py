@@ -1,12 +1,15 @@
 from libs.node import Node
+import re
 # PITCH	 ::=  ([A-G](#|b|)[0-8]
 
-class STAFF(Node):
+class PITCH(Node):
 
     # FIELDS:
-    # pitch
+    # note
     # octave
 
     def parse(self):
-        #TODO
+        token = self.tokenizer.getAndCheckNext("([A-G](#|b|)[0-8])")
+        self.note = token[0]
+        self.octave = token[1]
         return

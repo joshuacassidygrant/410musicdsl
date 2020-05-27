@@ -18,7 +18,6 @@ class DECLARATION(Node):
             return None
         else:
             return metaType()
-        
 
     def parse(self):
         return
