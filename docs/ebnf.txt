@@ -1,0 +1,37 @@
+COMPOSITION ::= METADATA DECLARATION* PLAY
+
+METADATA::= META*
+
+META    ::= (TITLE | TIME | TEMPO | COMPOSER | YEAR | ARRANGER | KEY)
+TITLE   ::= "Title:" STRING
+TIME    ::= "Time:" TIMESIG
+TEMPO   ::= "Tempo:" INTEGER
+COMPOSER::= "Composer:" STRING
+ARRANGER::= "Arranged by:" STRING
+KEY     ::= "Key:" KEYOF
+
+DECLARATION ::= (SET_SEQUENCE | SET_CHORD | PLAY)
+SET_SEQUENCE::= "seq " NAME "= [" ((BAR | SEQUENCE)"-")*(BAR | SEQUENCE)? "]"    // Sets new sequence variable with name NAME
+SET_CHORD   ::=  "chord " NAME "= {" (PITCH "-")* PITCH "}"                      // Sets a new chord variable with name NAME
+
+PLAY ::= "play " NAME
+
+NAME ::= [^"]*
+STRING  ::= (\"[^"]*\")                               
+INTEGER ::= \d+ 
+
+TIMESIG ::= ("4/4" | "3/4")
+KEYOF   ::= ([A-G](b|#|)(maj|min))     
+
+PITCH	 ::=  (([A-G]|R)(#|b|)[0-8]                                             // Where R is a rest
+LENGTH ::=  \.?(s|e|q|h|w)) 
+NOTE    ::= PITCH LENGTH
+CHORD ::= "{" NAME "}" LENGTH		                                            // Where NAME refers to chord variable
+SOUND ::= NOTE | CHORD
+
+SEQUENCE ::= "{" NAME "}(" INTEGER ")" 	                                        // Where NAME is seq variable and int is times to play it.
+BAR     ::= STAFF*                                             
+STAFF   ::= ("||" | "|" ("T"|"B") "|" (SOUND ,)* SOUND"||"
+
+
+
