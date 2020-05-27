@@ -1,5 +1,13 @@
+import os
 from libs.tokenizer import Tokenizer
 from ast.COMPOSITION import COMPOSITION
+
+
+def open_file():
+    # For accessing the file in a folder contained in the current folder
+    fileDir = os.path.dirname(os.path.realpath('__file__'))
+    filename = os.path.join(fileDir, '410musicdsl/data/test-input-p.mz')
+    return open(filename, "r").read()
 
 
 def main():
@@ -11,7 +19,8 @@ def main():
 
     # Tokenizing
     print("Starting TOKENIZING")
-    program = open("test-input-p.mz", "r").read()
+    program = open_file()
+
     Tokenizer.makeTokenizer(program, literals)
     p = COMPOSITION()
     print("Completed TOKENIZING")
