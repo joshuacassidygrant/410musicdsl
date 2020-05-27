@@ -1,5 +1,6 @@
 from libs.node import Node
-# SET_CHORD   ::=  "chord " STRING "= {" (PITCH "-")* PITCH "}"  
+# SET_CHORD   ::=  "chord " STRING "= {" (PITCH "-")* PITCH "}"
+
 
 class SET_CHORD(Node):
 
@@ -8,5 +9,5 @@ class SET_CHORD(Node):
     # name of chord
 
     def parse(self):
-        #TODO
+        # TODO
         return

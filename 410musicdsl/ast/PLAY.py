@@ -2,8 +2,9 @@ from libs.node import Node
 from ast.NAME import NAME
 # PLAY    ::= play NAME
 
+
 class PLAY(Node):
-    
+
     # FIELDS
     # name
 

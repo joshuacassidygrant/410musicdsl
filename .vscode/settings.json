@@ -1,6 +1,6 @@
 {
-    "python.linting.pylintEnabled": true,
-    "python.linting.enabled": true,
-    "python.linting.pylamaEnabled": false,
-    "python.pythonPath": "C:\\Users\\User\\anaconda3\\python.exe"
+  "python.pythonPath": "/home/eduardo/Desktop/code/ubc/410/410musicdsl/venv/bin/python3.8",
+  "python.linting.pylintEnabled": false,
+  "python.linting.flake8Enabled": true,
+  "python.linting.enabled": true
 }
