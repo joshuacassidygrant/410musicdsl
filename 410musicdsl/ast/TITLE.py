@@ -1,9 +1,8 @@
-from libs.node import Node
 from ast.META import META
 from ast.STRING import STRING
 
-class TITLE(META):
 
+class TITLE(META):
     # FIELDS:
     # title
 

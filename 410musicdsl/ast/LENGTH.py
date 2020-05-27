@@ -1,11 +1,11 @@
 from libs.node import Node
-# LENGTH ::=  \.?(s|e|q|h|w))
+# LENGTH ::=  \.?(s|e|q|h|w)
+
 
 class LENGTH(Node):
-
     # FIELDS:
-    # length
+    # value
 
     def parse(self):
-        #TODO
+        self.value = self.tokenizer.getAndCheckNext("(\\.?(s|e|q|h|w))")
         return

@@ -3,7 +3,6 @@ from libs.node import Node
 
 
 class NAME(Node):
-
     # FIELDS
     # value
 

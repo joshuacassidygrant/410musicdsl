@@ -1,5 +1,5 @@
 from libs.node import Node
-# STRING  ::= ([^"]*)  
+# STRING  ::= ([^"]*)
 
 
 class STRING(Node):

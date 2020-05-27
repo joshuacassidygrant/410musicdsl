@@ -1,11 +1,9 @@
 from libs.node import Node
 from ast.STRING import STRING
-from libs.tokenizer import Tokenizer
+# COMPOSER::= "Composer:" STRING
 
-#COMPOSER::= "Composer:" STRING
 
 class COMPOSER(Node):
-
     # FIELDS:
     # composer
 

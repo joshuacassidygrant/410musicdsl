@@ -1,8 +1,8 @@
 from libs.node import Node
 from ast.INTEGER import INTEGER
 
+
 class TEMPO(Node):
-    
     # FIELDS:
     # tempo
 

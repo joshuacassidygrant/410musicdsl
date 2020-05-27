@@ -1,9 +1,8 @@
-from libs.node import Node
 from ast.TIME_SIG import TIME_SIG
 from ast.META import META
 
-class TIME(META):
 
+class TIME(META):
     # FIELDS:
     # time
 

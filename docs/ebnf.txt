@@ -23,7 +23,7 @@ INTEGER ::= \d+
 TIMESIG ::= ("4/4" | "3/4")
 KEYOF   ::= ([A-G](b|#|)(maj|min))     
 
-PITCH	 ::=  ([A-G](#|b|)[0-8]
+PITCH	 ::=  (([A-G]|R)(#|b|)[0-8]                                             // Where R is a rest
 LENGTH ::=  \.?(s|e|q|h|w)) 
 NOTE    ::= PITCH LENGTH
 CHORD ::= "{" NAME "}" LENGTH		                                            // Where NAME refers to chord variable

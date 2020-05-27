@@ -2,7 +2,6 @@ from libs.node import Node
 from ast.METADATA import METADATA
 from ast.DECLARATION import DECLARATION
 from ast.PLAY import PLAY
-
 # COMPOSITION ::= METADATA DECLARATION*
 
 

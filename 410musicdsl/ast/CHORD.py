@@ -1,5 +1,7 @@
 from libs.node import Node
-# CHORD ::= "{" STRING "}" LENGTH		                                                // Where STRING refers to chord variable
+from ast.NAME import NAME
+from ast.LENGTH import LENGTH
+# CHORD ::= "{" NAME "}" LENGTH		    // Where NAME refers to chord variable
 
 
 class CHORD(Node):
@@ -9,5 +11,10 @@ class CHORD(Node):
     # length
 
     def parse(self):
-        #TODO
+        self.tokenizer.getAndCheckNext("{")
+        self.name = NAME()
+        self.name.parse()
+        self.tokenizer.getAndCheckNext("}")
+        self.length = LENGTH()
+        self.length.parse()
         return
