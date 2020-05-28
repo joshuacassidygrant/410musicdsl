@@ -8,8 +8,10 @@ class TITLE(META):
 
   def parse(self):
     self.tokenizer.getAndCheckNext("Title:")
-    self.title = STRING()
-    self.title.parse()
+    self.tokenizer.getAndCheckNext("\"")
+    self.value = self.tokenizer.getNext()
+    print("INSIDE STRING SELF: " + self.value)
+    self.tokenizer.getAndCheckNext("\"")
     return
 
   def accept(self, visitor: Visitor) -> None:

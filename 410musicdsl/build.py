@@ -3,7 +3,8 @@ class Input(object):
   def __init__(self):
     pass
 
-  def setTitle(self, title): pass
+  def setTitle(self, title):
+    self.title = title
 
   def setTime(self, time): pass
 

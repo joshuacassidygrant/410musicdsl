@@ -1,4 +1,6 @@
 from libs.node import Node
+from ast.APP_VISITOR import Visitor
+
 # STRING  ::= ([^"]*)
 
 
@@ -13,6 +15,11 @@ class STRING(Node):
         print("INSIDE STRING SELF: " + self.value)
         self.tokenizer.getAndCheckNext("\"")
         return
+
+    def accept(self, visitor: Visitor) -> None:
+      print("====STRING.accept====")
+      visitor.visit_string(self)
+
 
     def toString(self):
       return self.value

@@ -3,6 +3,10 @@ from ast.COMPOSITION import COMPOSITION
 from build import Input
 
 class Evaluator(Visitor):
+
+  def __init__(self, input):
+    self.input = input
+    print("Initialized visitor: ", self.input)
   
   def visit_arranger(self, e)-> None: pass
 
@@ -44,7 +48,7 @@ class Evaluator(Visitor):
   def visit_meta_data(self, e)-> None:
     print("=====visit_metadata=====")
     for meta in e.metas:
-      # meta.accept(self)
+      meta.accept(self)
       pass
   
   def visit_name(self, e)-> None: pass
@@ -83,7 +87,10 @@ class Evaluator(Visitor):
   def visit_time(self, e)-> None: pass
 
   
-  def visit_title(self, e)-> None: pass
-
+  def visit_title(self, e)-> None:
+    print("=====visit_title=====", e.value)   
+    self.input.setTitle(e.value)
+    print("INPUT UPDATE: ", Input)
+    pass
   
   def visit_year(self, e)-> None: pass

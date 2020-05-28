@@ -2,6 +2,7 @@ import os
 from libs.tokenizer import Tokenizer
 from ast.COMPOSITION import COMPOSITION
 from ast.APP_EVALUATOR import Evaluator
+from build import Input
 
 def open_file():
     # For accessing the file in a folder contained in the current folder
@@ -31,7 +32,8 @@ def main():
     print("Completed PARSING")
 
     print("Starting EVALUATION")
-    evaluator = Evaluator()
+    input = Input()
+    evaluator = Evaluator(input)
     p.accept(evaluator)
     print("Completed EVALUATION")
 

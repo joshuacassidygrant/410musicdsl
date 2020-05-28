@@ -1,4 +1,5 @@
 from libs.node import Node
+from ast.APP_VISITOR import Visitor
 # KEYOF   ::= ([A-G](b|#|)(maj|min))
 
 
@@ -12,3 +13,7 @@ class KEY_OF(Node):
         print("INSIDE KEY OF")
         self.tokenizer.getAndCheckNext("\"")
         return
+
+    def accept(self, visitor: Visitor) -> None:
+        print("====KEY_OF.accept====")
+        visitor.key_of(self)
