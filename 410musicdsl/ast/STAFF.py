@@ -10,7 +10,7 @@ class STAFF(Node):
     # list of sounds
 
     def parse(self):
-        self.clef = self.tokenizer.getAndCheckNext("\\|(T|B)\\|")
+        self.clef = self.tokenizer.getAndCheckNext("\\|(T)\\|")
         self.sounds = []
 
         while not self.tokenizer.checkToken("\\|\\|"):
