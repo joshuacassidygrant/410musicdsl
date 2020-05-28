@@ -44,10 +44,7 @@ class Evaluator(Visitor):
       d.accept(self)
     p = e.play
     p.accept(self)
-    print("METADATA: ", e.metadata)
 
-  def visit_declaration(self, e)-> None: pass
-  
   def visit_key(self, e)-> None: 
     print("-----visit_key_of-----")
     self.input.setKey(e.value)
@@ -56,13 +53,10 @@ class Evaluator(Visitor):
     print("-----visit_length-----", e.value)
     return e.value
   
-  def visit_meta(self, e)-> None: pass
-  
   def visit_meta_data(self, e)-> None:
     print("-----visit_metadata-----")
     for meta in e.metas:
       meta.accept(self)
-      pass
   
   def visit_name(self, e)-> None:
     print("-----visit_name-----", e.value)
@@ -79,7 +73,6 @@ class Evaluator(Visitor):
     note = e.note
     octave = e.octave
     pitch = e.note + "-" + e.octave
-    print("pitch: ", pitch)
     return pitch
   
   def visit_play(self, e)-> None:
@@ -91,7 +84,6 @@ class Evaluator(Visitor):
         print("=====Sequence exists")
       evaluatedMeasure = measure.accept(self)
       measures.append(evaluatedMeasure)
-    print("notes here: ", measures)
     self.input.setBodyBars(measures)
   
   def visit_sequence(self, e)-> None:

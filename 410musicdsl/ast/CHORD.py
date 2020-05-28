@@ -11,7 +11,6 @@ class CHORD(Node):
   # length
 
   def parse(self):
-    print("INSIDE CHORD.PARSE")
     self.tokenizer.getAndCheckNext("{")
     self.name = NAME()
     self.name.parse()

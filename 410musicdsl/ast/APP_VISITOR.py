@@ -18,16 +18,10 @@ class Visitor(ABC):
   def visit_composition(self, e)-> None: pass
   
   @abstractmethod
-  def visit_declaration(self, e)-> None: pass
-  
-  @abstractmethod
   def visit_key(self, e)-> None: pass
   
   @abstractmethod
   def visit_length(self, e)-> None: pass
-  
-  @abstractmethod
-  def visit_meta(self, e)-> None: pass
   
   @abstractmethod
   def visit_meta_data(self, e)-> None: pass

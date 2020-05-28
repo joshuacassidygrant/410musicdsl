@@ -36,7 +36,6 @@ class METADATA(Node):
             else:
                 print(f"\n============== Parsing {nextToken}\n")
                 meta = metaType()
-                print("INSIDE RIGHT BEFORE PARSE")
                 meta.parse()
                 self.metas.append(meta)
                 print(f"\n============== {nextToken} added to meta list\n")
