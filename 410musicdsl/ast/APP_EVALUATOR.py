@@ -92,6 +92,7 @@ class Evaluator(Visitor):
       evaluatedMeasure = measure.accept(self)
       measures.append(evaluatedMeasure)
     print("notes here: ", measures)
+    self.input.setBodyBars(measures)
   
   def visit_sequence(self, e)-> None:
     print("-----visit_sequence------", e.name.value)

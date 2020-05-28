@@ -8,7 +8,7 @@ class Input(object):
     self.year = None 
     self.arranger = None
     self.key = None 
-    self.body = None
+    self.body = {}
 
   def setTitle(self, title):
     self.title = title
@@ -32,9 +32,10 @@ class Input(object):
     print("setting key")
     self.key = key
 
-  def updateBody(self, key, val): pass
-
-  def updateBodyBars(self, val): pass
+  def setBodyBars(self, val):
+    self.body["key"] = self.key
+    self.body["meter"] = self.time
+    self.body["bars"] = val
 
   def __repr__(self):
     return "<BUILDINPUT title:%s, time:%s, tempo:%s, composer:%s, year:%s, arranger:%s, key:%s, body:%s>" % (self.title, self.time, self.tempo, self.composer, self.year, self.arranger, self.key, self.body)
