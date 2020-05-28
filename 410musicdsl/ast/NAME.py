@@ -8,4 +8,5 @@ class NAME(Node):
 
     def parse(self):
         self.value = self.tokenizer.getAndCheckNext("[^\"]*")
+        print("INSIDE NAME: " + self.value)
         return

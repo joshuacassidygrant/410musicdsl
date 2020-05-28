@@ -10,12 +10,11 @@ def open_file():
     filename = os.path.join(fileDir, '410musicdsl/data/test-input-p.mz')
     return open(filename, "r").read()
 
-
 def main():
     literals = [
         "Title:", "Time:", "Tempo:", "Composer:", "Arranged by:",
         "Key:", "Year:", "{", "}", "(", ")", "seq", "play", "chord",
-        "= [", "|T|", "|B|", "||", "]", ",", "\"", "//", "$(", ")", "("
+        "= [", "|T|", "|B|", "||", "]", ",", "\"", "//", "$(", ")", "(", "-"
     ]
 
     # Tokenizing
