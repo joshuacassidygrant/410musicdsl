@@ -97,4 +97,6 @@ class Evaluator(Visitor):
     self.input.setTitle(e.value)
     pass
   
-  def visit_year(self, e)-> None: pass
+  def visit_year(self, e)-> None:
+    print("-----visit_year-----")
+    self.input.setYear(e.value)

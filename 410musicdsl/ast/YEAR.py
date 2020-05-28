@@ -8,8 +8,7 @@ class YEAR(META):
 
   def parse(self):
     self.tokenizer.getAndCheckNext("Year:")
-    self.tempo = INTEGER()
-    self.tempo.parse()
+    self.value = self.tokenizer.getAndCheckNext("\\d+")
     return
 
   def accept(self, visitor: Visitor) -> None:
