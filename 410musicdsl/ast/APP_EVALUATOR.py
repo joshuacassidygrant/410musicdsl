@@ -1,4 +1,5 @@
 from ast.APP_VISITOR import Visitor
+from ast.COMPOSITION import COMPOSITION
 from build import Input
 
 class Evaluator(Visitor):
@@ -15,9 +16,12 @@ class Evaluator(Visitor):
   def visit_composer(self, e)-> None: pass
   
   
-  def visit_composition(self, e)-> None:
+  def visit_composition(self, e: COMPOSITION)-> None:
     print("=====visit_composition=====")
-    print("Composition: ", e)
+    m = e.metadata
+    m.accept(self)
+    print("METADATA: ", e.metadata)
+
 
   def visit_declaration(self, e)-> None: pass
   
@@ -37,7 +41,8 @@ class Evaluator(Visitor):
   def visit_meta(self, e)-> None: pass
   
   
-  def visit_meta_data(self, e)-> None: pass
+  def visit_meta_data(self, e)-> None:
+    print("=====visit_metadata=====")
   
   
   def visit_name(self, e)-> None: pass

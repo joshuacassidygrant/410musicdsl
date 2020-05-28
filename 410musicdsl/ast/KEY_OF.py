@@ -8,6 +8,7 @@ class KEY_OF(Node):
 
     def parse(self):
         self.tokenizer.getAndCheckNext("\"")
-        self.tokenizer.getAndCheckNext("([A-G](b|#|)(maj|min))")
+        self.key_of = self.tokenizer.getAndCheckNext("([A-G](b|#|)(maj|min))")
+        print("INSIDE KEY OF")
         self.tokenizer.getAndCheckNext("\"")
         return

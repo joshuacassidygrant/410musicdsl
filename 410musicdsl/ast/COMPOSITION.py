@@ -53,5 +53,5 @@ class COMPOSITION(Node):
         return
 
     def accept(self, visitor: Visitor) -> None:
-      print("====accept call success====")
+      print("====COMPOSITION.accept====")
       visitor.visit_composition(self)

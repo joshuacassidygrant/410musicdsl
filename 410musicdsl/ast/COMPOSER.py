@@ -11,4 +11,5 @@ class COMPOSER(Node):
         self.tokenizer.getAndCheckNext("Composer:")
         self.composer = STRING()
         self.composer.parse()
+        print("parsed composer: ", self.composer.toString())
         return
