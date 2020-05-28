@@ -16,7 +16,7 @@ class PITCH(Node):
 
     def accept(self, visitor: Visitor) -> None:
       print("====PITCH.accept====")
-      visitor.visit_pitch(self)
+      return visitor.visit_pitch(self)
 
 
     

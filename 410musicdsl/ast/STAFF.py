@@ -32,4 +32,4 @@ class STAFF(Node):
     
     def accept(self, visitor: Visitor) -> None:
         print("====STAFF.accept====")
-        visitor.visit_pitch(self)
+        visitor.visit_staff(self)

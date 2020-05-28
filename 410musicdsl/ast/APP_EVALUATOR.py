@@ -18,9 +18,9 @@ class Evaluator(Visitor):
     print("-----visit_bar-----")
     staffs = []
     for staff in e.staffs:
-      # staff.accept(self)
+      staff.accept(self)
       print(staff.sounds)
-  
+    return staffs
   
   def visit_chord(self, e)-> None:
     print("-----visit_chord-----")
@@ -44,17 +44,13 @@ class Evaluator(Visitor):
   def visit_declaration(self, e)-> None: pass
   
   
-  def visit_integer(self, e)-> None: pass
-  
-  
-  def visit_key_of(self, e)-> None: pass
-  
   def visit_key(self, e)-> None: 
     print("-----visit_key_of-----")
     self.input.setKey(e.value)
   
-  def visit_length(self, e)-> None: pass
-  
+  def visit_length(self, e)-> None:
+    print("-----visit_length-----", e.value)
+    return e.value
   
   def visit_meta(self, e)-> None: pass
   
@@ -65,18 +61,20 @@ class Evaluator(Visitor):
       meta.accept(self)
       pass
   
-  def visit_name(self, e)-> None: pass
-  
+  def visit_name(self, e)-> None:
+    print("-----visit_name-----", e.value)
+    return e.value
   
   def visit_note(self, e)-> None:
-    print("-----visit_note-----")
+    print("-----visit_note-----", e)
     pitch = e.pitch.accept(self)
     print("JUST CHECKING TYPE", pitch)
     length = e.length.accept(self)
+    print("pitch, length: ", pitch, length)
     return (pitch, length)
   
   def visit_pitch(self, e)-> None:
-    print("-----visit_pitch-----")
+    print("-----visit_pitch-----", e.note, e.octave)
     note = e.note
     octave = e.octave
     pitch = e.note + "-" + e.octave
@@ -91,6 +89,7 @@ class Evaluator(Visitor):
     for measure in seq.measures:
       print("measure type: ", measure)
       evaluatedMeasure = measure.accept(self)
+      print("HERE IS THE EVALUATED MEASURE: ", evaluatedMeasure)
       measures.append(evaluatedMeasure)
     print("notes here: ", measures)
   
@@ -113,8 +112,13 @@ class Evaluator(Visitor):
   
   def visit_staff(self, e)-> None:
     print("-----visit_staff-----")
+    sounds = []
     for sound in e.sounds:
       sound.accept(self)
+      sounds.append(sound)
+      print("sound here: ", sound)
+    return sound
+    
 
   def visit_string(self, e)-> None: pass
 

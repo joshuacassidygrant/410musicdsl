@@ -21,12 +21,6 @@ class Visitor(ABC):
   def visit_declaration(self, e)-> None: pass
   
   @abstractmethod
-  def visit_integer(self, e)-> None: pass
-  
-  @abstractmethod
-  def visit_key_of(self, e)-> None: pass
-  
-  @abstractmethod
   def visit_key(self, e)-> None: pass
   
   @abstractmethod

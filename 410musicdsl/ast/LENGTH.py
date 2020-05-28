@@ -1,4 +1,5 @@
 from libs.node import Node
+from ast.APP_VISITOR import Visitor
 # LENGTH ::=  \.?(s|e|q|h|w)
 
 
@@ -9,3 +10,7 @@ class LENGTH(Node):
     def parse(self):
         self.value = self.tokenizer.getAndCheckNext("(\\.?(s|e|q|h|w))")
         return
+
+    def accept(self, visitor: Visitor) -> None:
+        print("====LENGTH.accept====")
+        visitor.visit_length(self)

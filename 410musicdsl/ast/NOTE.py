@@ -21,4 +21,4 @@ class NOTE(Node):
 
     def accept(self, visitor: Visitor) -> None:
         print("====NOTE.accept====")
-        visitor.visit_pitch(self)
+        visitor.visit_note(self)
