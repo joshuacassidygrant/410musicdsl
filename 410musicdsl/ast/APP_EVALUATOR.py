@@ -9,7 +9,7 @@ class Evaluator(Visitor):
     print("Initialized visitor: ", self.input)
   
   def visit_arranger(self, e)-> None:
-    print("=====visit_arrange=====", e.value)
+    print("-----visit_arrange-----", e.value)
     self.input.setArranger(e.value)
 
   def visit_bar(self, e)-> None: pass
@@ -19,12 +19,12 @@ class Evaluator(Visitor):
   
   
   def visit_composer(self, e)-> None:
-    print("=====visit_composer=====", e.value)
+    print("-----visit_composer-----", e.value)
     self.input.setComposer(e.value)
   
   
   def visit_composition(self, e: COMPOSITION)-> None:
-    print("=====visit_composition=====")
+    print("-----visit_composition-----")
     m = e.metadata
     m.accept(self)
     print("METADATA: ", e.metadata)
@@ -38,9 +38,9 @@ class Evaluator(Visitor):
   
   def visit_key_of(self, e)-> None: pass
   
-  
-  def visit_key(self, e)-> None: pass
-  
+  def visit_key(self, e)-> None: 
+    print("-----visit_key_of-----")
+    self.input.setKey(e.value)
   
   def visit_length(self, e)-> None: pass
   
@@ -49,7 +49,7 @@ class Evaluator(Visitor):
   
   
   def visit_meta_data(self, e)-> None:
-    print("=====visit_metadata=====")
+    print("-----visit_metadata-----")
     for meta in e.metas:
       meta.accept(self)
       pass
@@ -81,17 +81,19 @@ class Evaluator(Visitor):
   def visit_string(self, e)-> None: pass
 
   
-  def visit_tempo(self, e)-> None: pass
-
+  def visit_tempo(self, e)-> None:
+    print("-----visit_tempo-----", e.value)
+    self.input.setTempo(e.value)
   
   def visit_time_sig(self, e)-> None: pass
 
   
-  def visit_time(self, e)-> None: pass
-
+  def visit_time(self, e)-> None:
+    print("-----visit_time-----", e.value)
+    self.input.setTime(e.value)
   
   def visit_title(self, e)-> None:
-    print("=====visit_title=====", e.value)   
+    print("-----visit_title-----", e.value)   
     self.input.setTitle(e.value)
     pass
   

@@ -9,8 +9,9 @@ class TIME(META):
 
   def parse(self):
       self.tokenizer.getAndCheckNext("Time:")
-      self.time = TIME_SIG()
-      self.time.parse()
+      self.tokenizer.getAndCheckNext("\"")
+      self.value = self.tokenizer.getAndCheckNext("((4\\/4)|(3\\/4))")
+      self.tokenizer.getAndCheckNext("\"")
       return
 
   def accept(self, visitor: Visitor) -> None:

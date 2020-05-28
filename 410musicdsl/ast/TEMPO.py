@@ -9,8 +9,7 @@ class TEMPO(Node):
 
   def parse(self):
       self.tokenizer.getAndCheckNext("Tempo:")
-      self.tempo = INTEGER()
-      self.tempo.parse()
+      self.value = self.tokenizer.getAndCheckNext("\\d+")
       return
 
   def accept(self, visitor: Visitor) -> None:

@@ -11,26 +11,30 @@ class Input(object):
     self.body = None
 
   def setTitle(self, title):
-    print("SETTING TITLE IN BUILD")
     self.title = title
 
-  def setTime(self, time): pass
+  def setTime(self, time):
+    self.time = time
 
-  def setTempo(self, temp): pass
+  def setTempo(self, tempo):
+    self.tempo = tempo
 
   def setComposer(self, composer):
     self.composer = composer
 
-  def setYear(self, year): pass
+  def setYear(self, year): 
+    self.year = year
 
   def setArranger(self, arranger):
     self.arranger = arranger
 
-  def setKey(self, key): pass
+  def setKey(self, key):
+    print("setting key")
+    self.key = key
 
   def updateBody(self, key, val): pass
 
   def updateBodyBars(self, val): pass
 
   def __repr__(self):
-    return "<Test title:%s, composer:%s, arranger:%s>" % (self.title, self.composer, self.arranger)
+    return "<BUILDINPUT title:%s, time:%s, tempo:%s, composer:%s, year:%s, arranger:%s, key:%s, body:%s>" % (self.title, self.time, self.tempo, self.composer, self.year, self.arranger, self.key, self.body)

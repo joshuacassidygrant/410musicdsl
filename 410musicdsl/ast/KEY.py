@@ -10,8 +10,9 @@ class KEY(Node):
 
   def parse(self):
       self.tokenizer.getAndCheckNext("Key:")
-      self.key = KEY_OF()
-      self.key.parse()
+      self.tokenizer.getAndCheckNext("\"")
+      self.value = self.tokenizer.getAndCheckNext("([A-G](b|#|)(maj|min))")
+      self.tokenizer.getAndCheckNext("\"")
       return
 
   def accept(self, visitor: Visitor) -> None:
