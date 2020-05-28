@@ -19,4 +19,4 @@ class BAR(Node):
 
   def accept(self, visitor: Visitor) -> None:
     print("====BAR.accept====")
-    visitor.visit_bar(self)
+    return visitor.visit_bar(self)

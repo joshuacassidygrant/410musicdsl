@@ -17,4 +17,4 @@ class PLAY(Node):
     
     def accept(self, visitor: Visitor) -> None:
       print("====PLAY.accept====")
-      visitor.visit_play(self)
+      return visitor.visit_play(self)

@@ -22,4 +22,4 @@ class CHORD(Node):
 
   def accept(self, visitor: Visitor) -> None:
     print("====CHORD.accept====")
-    visitor.visit_chord(self)
+    return visitor.visit_chord(self)

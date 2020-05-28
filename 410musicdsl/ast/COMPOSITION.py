@@ -54,4 +54,4 @@ class COMPOSITION(Node):
 
     def accept(self, visitor: Visitor) -> None:
       print("====COMPOSITION.accept====")
-      visitor.visit_composition(self)
+      return visitor.visit_composition(self)

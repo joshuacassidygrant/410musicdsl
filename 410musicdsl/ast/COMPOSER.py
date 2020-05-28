@@ -17,7 +17,7 @@ class COMPOSER(Node):
 
   def accept(self, visitor: Visitor) -> None:
     print("====COMPOSER.accept====")
-    visitor.visit_composer(self)
+    return visitor.visit_composer(self)
 
   def toString(self):
     return self.value

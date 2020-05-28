@@ -14,4 +14,4 @@ class INTEGER(Node):
 
     def accept(self, visitor: Visitor) -> None:
       print("====INTEGER.accept====")
-      visitor.visit_integer(self)
+      return visitor.visit_integer(self)

@@ -24,4 +24,4 @@ class DECLARATION(Node):
     
   def accept(self, visitor: Visitor) -> None:
     print("====DECLARATION.accept====")
-    visitor.visit_declaration(self)
+    return visitor.visit_declaration(self)

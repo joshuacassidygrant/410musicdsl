@@ -16,4 +16,4 @@ class TIME(META):
 
   def accept(self, visitor: Visitor) -> None:
     print("====TIME.accept====")
-    visitor.visit_time(self)
+    return visitor.visit_time(self)

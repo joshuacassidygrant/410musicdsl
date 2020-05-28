@@ -17,7 +17,7 @@ class ARRANGER(Node):
 
   def accept(self, visitor: Visitor) -> None:
     print("====ARRANGER.accept====")
-    visitor.visit_arranger(self)
+    return visitor.visit_arranger(self)
 
   def toString(self):
     return self.value

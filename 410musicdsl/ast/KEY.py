@@ -17,4 +17,4 @@ class KEY(Node):
 
   def accept(self, visitor: Visitor) -> None:
     print("====KEY.accept====")
-    visitor.visit_key(self)
+    return visitor.visit_key(self)

@@ -15,4 +15,4 @@ class TIME_SIG(Node):
 
     def accept(self, visitor: Visitor) -> None:
       print("====TIME_SIG.accept====")
-      visitor.visit_time_sig(self)
+      return visitor.visit_time_sig(self)

@@ -15,7 +15,7 @@ class TITLE(META):
 
   def accept(self, visitor: Visitor) -> None:
     print("====TITLE.accept====")
-    visitor.visit_title(self)
+    return visitor.visit_title(self)
 
   def toString(self):
     return self.value

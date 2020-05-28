@@ -45,4 +45,4 @@ class METADATA(Node):
 
     def accept(self, visitor: Visitor) -> None:
       print("====METADATA.accept====")
-      visitor.visit_meta_data(self)
+      return visitor.visit_meta_data(self)

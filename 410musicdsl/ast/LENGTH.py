@@ -13,4 +13,4 @@ class LENGTH(Node):
 
     def accept(self, visitor: Visitor) -> None:
         print("====LENGTH.accept====")
-        visitor.visit_length(self)
+        return visitor.visit_length(self)

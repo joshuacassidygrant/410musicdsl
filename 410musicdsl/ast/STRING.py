@@ -17,7 +17,7 @@ class STRING(Node):
 
   def accept(self, visitor: Visitor) -> None:
     print("====STRING.accept====")
-    visitor.visit_string(self)
+    return visitor.visit_string(self)
 
   def toString(self):
     return self.value

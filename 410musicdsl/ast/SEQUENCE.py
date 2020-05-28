@@ -24,5 +24,5 @@ class SEQUENCE(Node):
 
     def accept(self, visitor: Visitor) -> None:
       print("====SEQUENCE.accept====")
-      visitor.visit_play(self)
+      return visitor.visit_play(self)
 

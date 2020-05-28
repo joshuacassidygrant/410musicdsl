@@ -40,4 +40,4 @@ class SET_SEQUENCE(Node):
 
   def accept(self, visitor: Visitor) -> None:
     print("====SET_SEQUENCE.accept====")
-    visitor.visit_set_sequence(self)
+    return visitor.visit_set_sequence(self)

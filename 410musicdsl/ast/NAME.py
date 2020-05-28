@@ -17,5 +17,5 @@ class NAME(Node):
     
     def accept(self, visitor: Visitor) -> None:
       print("====NAME.accept====")
-      visitor.visit_name(self)
+      return visitor.visit_name(self)
 

@@ -14,4 +14,4 @@ class TEMPO(Node):
 
   def accept(self, visitor: Visitor) -> None:
     print("====TEMPO.accept====")
-    visitor.visit_tempo(self)
+    return visitor.visit_tempo(self)

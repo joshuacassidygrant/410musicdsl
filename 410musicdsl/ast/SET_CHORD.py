@@ -35,4 +35,4 @@ class SET_CHORD(Node):
 
   def accept(self, visitor: Visitor) -> None:
     print("====SET_CHORD.accept====")
-    visitor.visit_set_chord(self)
+    return visitor.visit_set_chord(self)

@@ -13,4 +13,4 @@ class YEAR(META):
 
   def accept(self, visitor: Visitor) -> None:
     print("====YEAR.accept====")
-    visitor.visit_year(self)
+    return visitor.visit_year(self)
