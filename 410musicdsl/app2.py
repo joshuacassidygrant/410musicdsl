@@ -31,7 +31,8 @@ def main():
     print("Completed PARSING")
 
     print("Starting EVALUATION")
-    # TODO
+    evaluator = Evaluator()
+    p.accept(evaluator)
     print("Completed EVALUATION")
 
 if __name__ == '__main__':

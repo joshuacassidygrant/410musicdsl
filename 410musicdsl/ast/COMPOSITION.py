@@ -2,7 +2,7 @@ from libs.node import Node
 from ast.METADATA import METADATA
 from ast.DECLARATION import DECLARATION
 from ast.PLAY import PLAY
-from ast.APP_EVALUATOR import *
+from ast.APP_VISITOR import Visitor
 # COMPOSITION ::= METADATA DECLARATION*
 
 
@@ -53,4 +53,5 @@ class COMPOSITION(Node):
         return
 
     def accept(self, visitor: Visitor) -> None:
+      print("====accept call success====")
       visitor.visit_composition(self)
