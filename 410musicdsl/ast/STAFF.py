@@ -1,6 +1,7 @@
 from libs.node import Node
 from ast.NOTE import NOTE
 from ast.CHORD import CHORD
+from ast.APP_VISITOR import Visitor
 # STAFF ::= ("||" | "|" ("T"|"B") "|" (SOUND ,)* SOUND"||"
 
 
@@ -27,3 +28,8 @@ class STAFF(Node):
 
         self.tokenizer.getNext()
         return
+
+    
+    def accept(self, visitor: Visitor) -> None:
+        print("====STAFF.accept====")
+        visitor.visit_pitch(self)

@@ -1,5 +1,6 @@
 from libs.node import Node
 from ast.STAFF import STAFF
+from ast.APP_VISITOR import Visitor
 # BAR     ::= STAFF*
 
 class BAR(Node):
@@ -13,6 +14,9 @@ class BAR(Node):
       staff.parse()
       self.staffs.append(staff)
       print("ADDING A STAFF TO BAR: ", self.staffs)
-    print("REACHED THE DISLIKED TOKEN")
     print(self.tokenizer.checkNext())
     return
+
+  def accept(self, visitor: Visitor) -> None:
+    print("====BAR.accept====")
+    visitor.visit_bar(self)

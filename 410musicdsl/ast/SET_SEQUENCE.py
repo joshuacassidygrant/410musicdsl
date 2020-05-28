@@ -23,21 +23,15 @@ class SET_SEQUENCE(Node):
     self.tokenizer.getAndCheckNext("=")
     self.tokenizer.getAndCheckNext("\\[")
     while not self.tokenizer.checkToken("]"):
-        if self.tokenizer.checkToken("\\|(T|B)\\|"):
+        if self.tokenizer.checkToken("\\|(T)\\|"):
             print("Found a BAR inside SET_SEQUENCE")
             bar = BAR()
             bar.parse()
             self.measures.append(bar)
-            print("WE DID IT")
-            for measure in self.measures:
-              print("MEASURES have been parsed: ", measure)
         elif self.tokenizer.checkToken("{"):
             seq = SEQUENCE()
             seq.parse()
             self.measures.append(seq)
-            for measure in self.measures:
-              print("MEASURES have been parsed: ", measure)
-
         if self.tokenizer.checkToken("-"):
             self.tokenizer.getNext()
 

@@ -1,4 +1,5 @@
 from libs.node import Node
+from ast.APP_VISITOR import Visitor
 # PITCH	 ::=  ([A-G](#|b|)[0-8]
 
 
@@ -12,5 +13,10 @@ class PITCH(Node):
       self.note = token[0]
       self.octave = token[1]
       return
+
+    def accept(self, visitor: Visitor) -> None:
+      print("====PITCH.accept====")
+      visitor.visit_pitch(self)
+
 
     

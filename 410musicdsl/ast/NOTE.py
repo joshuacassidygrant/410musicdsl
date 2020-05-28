@@ -1,6 +1,7 @@
 from libs.node import Node
 from ast.LENGTH import LENGTH
 from ast.PITCH import PITCH
+from ast.APP_VISITOR import Visitor
 # NOTE    ::= PITCH LENGTH
 
 
@@ -16,5 +17,8 @@ class NOTE(Node):
         self.pitch.octave = token[1]
         self.length = LENGTH()
         self.length.value = token[2:]
-
         return
+
+    def accept(self, visitor: Visitor) -> None:
+        print("====NOTE.accept====")
+        visitor.visit_pitch(self)

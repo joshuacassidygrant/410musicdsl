@@ -1,5 +1,6 @@
 from libs.node import Node
 from ast.NAME import NAME
+from ast.APP_VISITOR import Visitor
 # PLAY    ::= play NAME
 
 
@@ -8,7 +9,12 @@ class PLAY(Node):
     # name
 
     def parse(self):
-        self.tokenizer.getAndCheckNext("play")
-        self.name = NAME()
-        self.name.parse()
-        return
+      print("=====PLAY.parse======")
+      self.tokenizer.getAndCheckNext("play")
+      self.name = NAME()
+      self.name.parse()
+      return
+    
+    def accept(self, visitor: Visitor) -> None:
+      print("====PLAY.accept====")
+      visitor.visit_play(self)
