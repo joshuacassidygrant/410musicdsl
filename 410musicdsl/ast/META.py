@@ -5,5 +5,4 @@ class META(Node):
     # FIELDS:
 
     def parse(self):
-        # TODO?
         return

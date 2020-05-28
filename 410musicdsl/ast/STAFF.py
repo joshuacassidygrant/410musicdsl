@@ -1,6 +1,7 @@
 from libs.node import Node
 from ast.NOTE import NOTE
 from ast.CHORD import CHORD
+from ast.APP_VISITOR import Visitor
 # STAFF ::= ("||" | "|" ("T"|"B") "|" (SOUND ,)* SOUND"||"
 
 
@@ -10,7 +11,7 @@ class STAFF(Node):
     # list of sounds
 
     def parse(self):
-        self.clef = self.tokenizer.getAndCheckNext("\\|(T|B)\\|")
+        self.clef = self.tokenizer.getAndCheckNext("\\|(T)\\|")
         self.sounds = []
 
         while not self.tokenizer.checkToken("\\|\\|"):
@@ -27,3 +28,8 @@ class STAFF(Node):
 
         self.tokenizer.getNext()
         return
+
+    
+    def accept(self, visitor: Visitor) -> None:
+        print("====STAFF.accept====")
+        return visitor.visit_staff(self)

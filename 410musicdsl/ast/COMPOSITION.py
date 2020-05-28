@@ -2,6 +2,7 @@ from libs.node import Node
 from ast.METADATA import METADATA
 from ast.DECLARATION import DECLARATION
 from ast.PLAY import PLAY
+from ast.APP_VISITOR import Visitor
 # COMPOSITION ::= METADATA DECLARATION*
 
 
@@ -50,3 +51,7 @@ class COMPOSITION(Node):
             # print("Still have tokens after play statement!")
             raise Exception("More tokens defined after play not allowed.")
         return
+
+    def accept(self, visitor: Visitor) -> None:
+      print("====COMPOSITION.accept====")
+      return visitor.visit_composition(self)

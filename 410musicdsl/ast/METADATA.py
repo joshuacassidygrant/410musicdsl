@@ -6,6 +6,7 @@ from ast.TEMPO import TEMPO
 from ast.COMPOSER import COMPOSER
 from ast.YEAR import YEAR
 from ast.KEY import KEY
+from ast.APP_VISITOR import Visitor
 # METADATA::= META*
 
 metamap = {
@@ -40,3 +41,7 @@ class METADATA(Node):
                 print(f"\n============== {nextToken} added to meta list\n")
 
         return
+
+    def accept(self, visitor: Visitor) -> None:
+      print("====METADATA.accept====")
+      return visitor.visit_meta_data(self)
