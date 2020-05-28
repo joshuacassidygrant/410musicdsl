@@ -94,9 +94,6 @@ class Evaluator(Visitor):
     print("-----visit_tempo-----", e.value)
     self.input.setTempo(e.value)
   
-  def visit_time_sig(self, e)-> None: pass
-
-  
   def visit_time(self, e)-> None:
     print("-----visit_time-----", e.value)
     self.input.setTime(e.value)

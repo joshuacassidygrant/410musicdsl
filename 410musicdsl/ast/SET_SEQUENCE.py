@@ -17,17 +17,27 @@ class SET_SEQUENCE(Node):
     # TODO add variable for name to some sort of symbols table
     self.name = NAME()
     self.name.parse()
+    self.measures = []
 
     # TODO parse internal sequence
     self.tokenizer.getAndCheckNext("=")
     self.tokenizer.getAndCheckNext("\\[")
     while not self.tokenizer.checkToken("]"):
         if self.tokenizer.checkToken("\\|(T|B)\\|"):
+            print("Found a BAR inside SET_SEQUENCE")
             bar = BAR()
             bar.parse()
+            self.measures.append(bar)
+            print("WE DID IT")
+            for measure in self.measures:
+              print("MEASURES have been parsed: ", measure)
         elif self.tokenizer.checkToken("{"):
             seq = SEQUENCE()
             seq.parse()
+            self.measures.append(seq)
+            for measure in self.measures:
+              print("MEASURES have been parsed: ", measure)
+
         if self.tokenizer.checkToken("-"):
             self.tokenizer.getNext()
 

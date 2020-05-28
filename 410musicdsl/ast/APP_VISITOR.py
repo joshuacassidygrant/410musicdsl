@@ -69,9 +69,6 @@ class Visitor(ABC):
   def visit_tempo(self, e)-> None: pass
 
   @abstractmethod
-  def visit_time_sig(self, e)-> None: pass
-
-  @abstractmethod
   def visit_time(self, e)-> None: pass
 
   @abstractmethod
