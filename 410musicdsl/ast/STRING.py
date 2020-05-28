@@ -6,20 +6,18 @@ from ast.APP_VISITOR import Visitor
 
 class STRING(Node):
 
-    # FIELDS:
-    # value
+  # FIELDS:
+  # value
 
-    def parse(self):
-        self.tokenizer.getAndCheckNext("\"")
-        self.value = self.tokenizer.getNext()
-        print("INSIDE STRING SELF: " + self.value)
-        self.tokenizer.getAndCheckNext("\"")
-        return
+  def parse(self):
+    self.tokenizer.getAndCheckNext("\"")
+    self.value = self.tokenizer.getNext()
+    self.tokenizer.getAndCheckNext("\"")
+    return
 
-    def accept(self, visitor: Visitor) -> None:
-      print("====STRING.accept====")
-      visitor.visit_string(self)
+  def accept(self, visitor: Visitor) -> None:
+    print("====STRING.accept====")
+    visitor.visit_string(self)
 
-
-    def toString(self):
-      return self.value
+  def toString(self):
+    return self.value

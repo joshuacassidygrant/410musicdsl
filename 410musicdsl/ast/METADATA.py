@@ -25,7 +25,6 @@ class METADATA(Node):
     # list of meta
 
     def parse(self):
-        print("INSIDE PARSE METADATA")
         self.metas = []
         while self.tokenizer.checkNext()\
                 and not self.tokenizer.checkToken("(seq|chord)"):

@@ -3,8 +3,10 @@ from ast.COMPOSITION import COMPOSITION
 from build import Input
 
 class Evaluator(Visitor):
+  symbolTable = None
 
   def __init__(self, input):
+    Evaluator.symbolTable = {}
     self.input = input
     print("Initialized visitor: ", self.input)
   
@@ -15,20 +17,22 @@ class Evaluator(Visitor):
   def visit_bar(self, e)-> None: pass
   
   
-  def visit_chord(self, e)-> None: pass
+  def visit_chord(self, e)-> None:
+    print("-----visit_chord-----")
   
   
   def visit_composer(self, e)-> None:
     print("-----visit_composer-----", e.value)
     self.input.setComposer(e.value)
   
-  
   def visit_composition(self, e: COMPOSITION)-> None:
     print("-----visit_composition-----")
     m = e.metadata
     m.accept(self)
+    decs = e.declarations
+    for d in decs:
+      d.accept(self)
     print("METADATA: ", e.metadata)
-
 
   def visit_declaration(self, e)-> None: pass
   
@@ -69,9 +73,14 @@ class Evaluator(Visitor):
   def visit_sequence(self, e)-> None: pass
   
   
-  def visit_set_chord(self, e)-> None: pass
-  
-  
+  def visit_set_chord(self, e)-> None: 
+    print("-----visit_set_chord-----")
+    print("chord.name: ", e.name.value)
+    Evaluator.symbolTable[e.name.value] = e
+    print("symbol table: ", Evaluator.symbolTable[e.name.value])
+    for note in e.pitches:
+      print("e.pitches note: " + note.note)
+
   def visit_set_sequence(self, e)-> None: pass
 
   
