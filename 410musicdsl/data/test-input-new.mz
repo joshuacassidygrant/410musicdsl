@@ -1,0 +1,41 @@
+Title: "Ode to Joy"
+Time: "4/4"
+Tempo: 120
+Composer: "Ludwig Van Beethoven"
+Year: 1824
+Arranged by: "Eduardo Garza"
+Key: "Cmaj"
+
+chord C = {C3-E4-G4}
+
+seq main2 = [
+  |T| {C}q || 
+  |B| C3w ||
+-
+  |T| G4q, F4q, E4q, D4q ||
+  |B| G2w ||
+-
+  |T| C4q, C4q, D4q, E4q  ||
+  |B| C3w ||
+-
+  |T| E4.q,  D4e, D4h ||
+  |B| G2w ||
+]
+
+seq main = [
+  |T| E4q, E4q, F4q, G4q || 
+  |B| C3w ||
+-
+  |T| G4q, F4q, E4q, D4q ||
+  |B| G2w ||
+-
+  {main2}(2)
+-
+  |T| C4q, C4q, D4q, E4q  ||
+  |B| C3w ||
+-
+  |T| E4.q,  D4e, D4h ||
+  |B| G2w ||
+]
+
+play main
