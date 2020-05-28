@@ -16,7 +16,7 @@ class Evaluator(Visitor):
   
   def visit_composition(self, e)-> None: pass
   
-  
+
   def visit_declaration(self, e)-> None: pass
   
   
