@@ -1,12 +1,21 @@
+import os
 from ast.APP_VISITOR import Visitor
 from ast.COMPOSITION import COMPOSITION
 from build import Input
+
+def open_file():
+  fileDir = os.path.dirname(os.path.realpath('__file__'))
+  filename = os.path.join(fileDir, '410musicdsl/output.ly')
+  return filename
 
 class Evaluator(Visitor):
   symbolTable = None
 
   def __init__(self, input):
     Evaluator.symbolTable = {}
+    filename = open_file()
+    f = open("output.ly", "w")
+    f.write("")
     self.input = input
     print("Initialized visitor: ", self.input)
   
@@ -23,16 +32,29 @@ class Evaluator(Visitor):
   
   def visit_composer(self, e)-> None:
     print("-----visit_composer-----", e.value)
+    filename = open_file
+    f = open("output.ly", "a")
+    f.write("composer = " + '"' + e.value + '"' + "\n")
+    f.close()
     self.input.setComposer(e.value)
   
   def visit_composition(self, e: COMPOSITION)-> None:
     print("-----visit_composition-----")
+    filename = open_file()
+    f = open("output.ly", "a")
+    f.write('version "2.20.0"\n')
+    f.write("\header{\n")
+    f.close()
     m = e.metadata
     m.accept(self)
     decs = e.declarations
     for d in decs:
       d.accept(self)
+    f = open("output.ly", "a")
+    f.write("}\n")
+    f.close()
     print("METADATA: ", e.metadata)
+
 
   def visit_declaration(self, e)-> None: pass
   
@@ -100,6 +122,10 @@ class Evaluator(Visitor):
   
   def visit_title(self, e)-> None:
     print("-----visit_title-----", e.value)   
+    filename = open_file
+    f = open("output.ly", "a")
+    f.write("title = " + '"' + e.value + '"' + "\n")
+    f.close()
     self.input.setTitle(e.value)
     pass
   
