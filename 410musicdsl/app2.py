@@ -2,7 +2,6 @@ import os
 from libs.tokenizer import Tokenizer
 from ast.COMPOSITION import COMPOSITION
 
-
 def open_file():
     # For accessing the file in a folder contained in the current folder
     fileDir = os.path.dirname(os.path.realpath('__file__'))
@@ -30,6 +29,9 @@ def main():
     p.parse()
     print("Completed PARSING")
 
+    print("Starting EVALUATION")
+    # TODO
+    print("Completed EVALUATION")
 
 if __name__ == '__main__':
     main()
