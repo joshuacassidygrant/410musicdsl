@@ -37,5 +37,9 @@ def main():
     p.accept(evaluator)
     print("Completed EVALUATION")
 
+    print("======Build Input=====")
+    print(repr(input))
+
+
 if __name__ == '__main__':
     main()

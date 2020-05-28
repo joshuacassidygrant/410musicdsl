@@ -8,16 +8,19 @@ class Evaluator(Visitor):
     self.input = input
     print("Initialized visitor: ", self.input)
   
-  def visit_arranger(self, e)-> None: pass
+  def visit_arranger(self, e)-> None:
+    print("=====visit_arrange=====", e.value)
+    self.input.setArranger(e.value)
 
-  
   def visit_bar(self, e)-> None: pass
   
   
   def visit_chord(self, e)-> None: pass
   
   
-  def visit_composer(self, e)-> None: pass
+  def visit_composer(self, e)-> None:
+    print("=====visit_composer=====", e.value)
+    self.input.setComposer(e.value)
   
   
   def visit_composition(self, e: COMPOSITION)-> None:
@@ -90,7 +93,6 @@ class Evaluator(Visitor):
   def visit_title(self, e)-> None:
     print("=====visit_title=====", e.value)   
     self.input.setTitle(e.value)
-    print("INPUT UPDATE: ", Input)
     pass
   
   def visit_year(self, e)-> None: pass

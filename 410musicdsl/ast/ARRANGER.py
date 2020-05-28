@@ -10,10 +10,14 @@ class ARRANGER(Node):
 
   def parse(self):
       self.tokenizer.getAndCheckNext("Arranged by:")
-      self.arranger = STRING()
-      self.arranger.parse()
+      self.tokenizer.getAndCheckNext("\"")
+      self.value = self.tokenizer.getNext()
+      self.tokenizer.getAndCheckNext("\"")
       return
 
   def accept(self, visitor: Visitor) -> None:
     print("====ARRANGER.accept====")
     visitor.visit_arranger(self)
+
+  def toString(self):
+    return self.value

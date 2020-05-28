@@ -10,11 +10,14 @@ class COMPOSER(Node):
 
   def parse(self):
     self.tokenizer.getAndCheckNext("Composer:")
-    self.composer = STRING()
-    self.composer.parse()
-    print("parsed composer: ", self.composer.toString())
+    self.tokenizer.getAndCheckNext("\"")
+    self.value = self.tokenizer.getNext()
+    self.tokenizer.getAndCheckNext("\"")
     return
 
   def accept(self, visitor: Visitor) -> None:
     print("====COMPOSER.accept====")
     visitor.visit_composer(self)
+
+  def toString(self):
+    return self.value
