@@ -9,7 +9,7 @@ Key: "Cmaj"
 chord C = {C3-E4-G4}
 
 seq main2 = [
-  |T| {C}q || 
+  |T| {C}w || 
 -
   |T| G4q, F4q, E4q, D4q ||
 -

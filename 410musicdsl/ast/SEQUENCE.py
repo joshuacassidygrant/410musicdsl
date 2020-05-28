@@ -17,12 +17,11 @@ class SEQUENCE(Node):
         self.name.parse()
         self.tokenizer.getAndCheckNext("}")
         self.tokenizer.getAndCheckNext("\\(")
-        self.repeats = INTEGER()
-        self.repeats.parse()
+        self.repeats = self.tokenizer.getAndCheckNext("\\d+")
         self.tokenizer.getAndCheckNext("\\)")
         return
 
     def accept(self, visitor: Visitor) -> None:
       print("====SEQUENCE.accept====")
-      return visitor.visit_play(self)
+      return visitor.visit_sequence(self)
 

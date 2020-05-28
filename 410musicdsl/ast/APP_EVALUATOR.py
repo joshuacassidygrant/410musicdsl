@@ -1,5 +1,6 @@
 from ast.APP_VISITOR import Visitor
 from ast.COMPOSITION import COMPOSITION
+from ast.SEQUENCE import SEQUENCE
 from build import Input
 
 class Evaluator(Visitor):
@@ -16,15 +17,19 @@ class Evaluator(Visitor):
 
   def visit_bar(self, e)-> None:
     print("-----visit_bar-----")
-    staffs = []
-    for staff in e.staffs:
-      staff.accept(self)
-      print(staff.sounds)
-    return staffs
+    s = e.staffs[0].accept(self)
+    return s
   
   def visit_chord(self, e)-> None:
-    print("-----visit_chord-----")
-  
+    print("-----visit_chord-----", e.name.value)
+    chord = []
+    c = Evaluator.symbolTable[e.name.value]
+    for pitch in c.pitches:
+      p = pitch.accept(self)
+      chord.append(p)
+    l = e.length.accept(self)
+    print("Chord note array: ", chord)
+    return (chord, l)
   
   def visit_composer(self, e)-> None:
     print("-----visit_composer-----", e.value)
@@ -43,7 +48,6 @@ class Evaluator(Visitor):
 
   def visit_declaration(self, e)-> None: pass
   
-  
   def visit_key(self, e)-> None: 
     print("-----visit_key_of-----")
     self.input.setKey(e.value)
@@ -53,7 +57,6 @@ class Evaluator(Visitor):
     return e.value
   
   def visit_meta(self, e)-> None: pass
-  
   
   def visit_meta_data(self, e)-> None:
     print("-----visit_metadata-----")
@@ -68,9 +71,7 @@ class Evaluator(Visitor):
   def visit_note(self, e)-> None:
     print("-----visit_note-----", e)
     pitch = e.pitch.accept(self)
-    print("JUST CHECKING TYPE", pitch)
     length = e.length.accept(self)
-    print("pitch, length: ", pitch, length)
     return (pitch, length)
   
   def visit_pitch(self, e)-> None:
@@ -83,45 +84,42 @@ class Evaluator(Visitor):
   
   def visit_play(self, e)-> None:
     print("-----visit_play-----", e.name.value)
-    print("name: " + e.name.value)
     seq = Evaluator.symbolTable[e.name.value]
     measures = []
     for measure in seq.measures:
-      print("measure type: ", measure)
+      if (type(measure) is SEQUENCE):
+        print("=====Sequence exists")
       evaluatedMeasure = measure.accept(self)
-      print("HERE IS THE EVALUATED MEASURE: ", evaluatedMeasure)
       measures.append(evaluatedMeasure)
     print("notes here: ", measures)
   
   def visit_sequence(self, e)-> None:
     print("-----visit_sequence------", e.name.value)
-  
+    seq = Evaluator.symbolTable[e.name.value]
+    measures = []
+    for i in range(int(e.repeats)):
+      for measure in seq.measures:
+        evaluatedMeasure = measure.accept(self)
+        measures.append(evaluatedMeasure)
+    return measures
+      
   def visit_set_chord(self, e)-> None: 
-    print("-----visit_set_chord-----")
-    print("chord.name: ", e.name.value)
+    print("-----visit_set_chord-----", e.name.value)
     Evaluator.symbolTable[e.name.value] = e
-    print("symbol table: ", Evaluator.symbolTable[e.name.value])
-    for note in e.pitches:
-      print("e.pitches note: " + note.note)
 
   def visit_set_sequence(self, e)-> None:
-    print("------visit_set_sequence-----")
-    print("sequence.name: ", e.name.value)
+    print("------visit_set_sequence-----", e.name.value)
     Evaluator.symbolTable[e.name.value] = e
-    print("symbol table: ", Evaluator.symbolTable)
   
   def visit_staff(self, e)-> None:
     print("-----visit_staff-----")
     sounds = []
     for sound in e.sounds:
-      sound.accept(self)
-      sounds.append(sound)
-      print("sound here: ", sound)
-    return sound
+      s = sound.accept(self)
+      sounds.append(s)
+    return sounds
     
-
   def visit_string(self, e)-> None: pass
-
   
   def visit_tempo(self, e)-> None:
     print("-----visit_tempo-----", e.value)
