@@ -15,6 +15,7 @@ class SET_CHORD(Node):
         self.name = NAME()
         self.name.parse()
 
+        self.tokenizer.getAndCheckNext("=")
         self.tokenizer.getAndCheckNext("{")
 
         p = PITCH()

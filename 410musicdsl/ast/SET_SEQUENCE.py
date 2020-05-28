@@ -18,7 +18,8 @@ class SET_SEQUENCE(Node):
         self.name.parse()
 
         # TODO parse internal sequence
-        self.tokenizer.getAndCheckNext("= \\[")
+        self.tokenizer.getAndCheckNext("=")
+        self.tokenizer.getAndCheckNext("\\[")
         while not self.tokenizer.checkToken("]"):
             if self.tokenizer.checkToken("\\|(T|B)\\|"):
                 bar = BAR()

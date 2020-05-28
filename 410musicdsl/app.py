@@ -13,8 +13,8 @@ def open_file():
 def main():
     literals = [
         "Title:", "Time:", "Tempo:", "Composer:", "Arranged by:",
-        "Key:", "Year:", "{", "}", "(", ")", "seq", "play", "chord",
-        "= [", "|T|", "|B|", "||", "]", ",", "\"", "//", "$(", ")", "(", "-"
+        "Key:", "Year:", "{", "}", "(", ")", "seq", "play", "chord", "=",
+        "[", "|T|", "|B|", "||", "]", ",", "\"", "//", "$(", ")", "(", "-"
     ]
 
     # Tokenizing
