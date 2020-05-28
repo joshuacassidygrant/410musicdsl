@@ -43,7 +43,9 @@ class Evaluator(Visitor):
   
   def visit_meta_data(self, e)-> None:
     print("=====visit_metadata=====")
-  
+    for meta in e.metas:
+      # meta.accept(self)
+      pass
   
   def visit_name(self, e)-> None: pass
   
