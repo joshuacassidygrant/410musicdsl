@@ -1,6 +1,7 @@
 import os
 from libs.tokenizer import Tokenizer
 from ast.COMPOSITION import COMPOSITION
+from ast.APP_EVALUATOR import Evaluator
 
 def open_file():
     # For accessing the file in a folder contained in the current folder
