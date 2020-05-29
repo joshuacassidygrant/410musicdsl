@@ -2,12 +2,11 @@ import mingus.core.notes as notes
 from mingus.containers import Bar, NoteContainer, Track, Composition
 import mingus.extra.lilypond as LilyPond
 from mingus.midi import midi_file_out
-from input import Input
 
 # NOTE: Must install lilypond.exe (for Windows), LilyPond in the $PATH is needed, and pip install mingus before running
 
-# Create midi file
-def createMidi(input):
+# Create music sheet PDF and MIDI file
+def createOutputs(input):
     if not input:
         print("Invalid: input is empty")
     else:
@@ -18,23 +17,12 @@ def createMidi(input):
         c.set_title(title, subtitle)
         t = createTrack(input.body)
         c.add_track(t)
-        title += ".mid"
-        print("Creating a Midi file")
-        midi_file_out.write_Composition(title, c)
-
-# Create music sheet PDF
-def createMusicsheet(input):
-    if not input:
-        print("Invalid: input is empty")
-    else:
-        c = Composition()
-        subtitle = "time = " + input.time + ", tempo = " + input.tempo + ", composer = " + input.composer + ", year = " + input.year + ", key = " + input.key
-        c.set_author(input.arrangedBy, 'author@email.com')
-        c.set_title(input.title, subtitle)
-        t = createTrack(input.body)
-        c.add_track(t)
         compString = LilyPond.from_Composition(c)
-        LilyPond.to_pdf(compString, input.title)
+        print("Creating a music sheet pdf")
+        LilyPond.to_pdf(compString, title)
+        title += ".mid"
+        print("Creating a MIDI file")
+        midi_file_out.write_Composition(title, c)
 
 def createTrack(body):
     t = Track()
@@ -57,6 +45,3 @@ def createTrack(body):
 #     example = Input()
 #     createMusicsheet(example)
 #     createMidi(example)
-
-if __name__ == "__main__":
-    main()

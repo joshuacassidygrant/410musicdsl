@@ -3,6 +3,7 @@ from libs.tokenizer import Tokenizer
 from ast.COMPOSITION import COMPOSITION
 from ast.APP_EVALUATOR import Evaluator
 from build import Input
+from output import createOutputs
 
 def open_file():
     # For accessing the file in a folder contained in the current folder
@@ -38,6 +39,9 @@ def main():
 
     print("======Build Input=====")
     print(repr(input))
+
+    print("======Build Output=====")
+    createOutputs(input)
 
 
 if __name__ == '__main__':
