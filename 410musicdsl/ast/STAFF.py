@@ -19,12 +19,14 @@ class STAFF(Node):
                 chord = CHORD()
                 chord.parse()
                 self.sounds.append(chord)
+                if self.tokenizer.checkToken(","):
+                  self.tokenizer.getNext()
             elif self.tokenizer.checkToken("(([A-G]|R)(#|b|)[0-8]\\.?\\w)"):
                 note = NOTE()
                 note.parse()
                 self.sounds.append(note)
                 if self.tokenizer.checkToken(","):
-                    self.tokenizer.getNext()
+                  self.tokenizer.getNext()
 
         self.tokenizer.getNext()
         return
