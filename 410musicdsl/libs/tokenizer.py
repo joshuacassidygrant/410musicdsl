@@ -1,5 +1,7 @@
 import re
 
+# Follows the same Tokenizer ideas from class
+# UBC CPSC 410
 
 class Tokenizer:
     program = None

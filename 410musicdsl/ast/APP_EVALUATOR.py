@@ -5,6 +5,9 @@ from ast.SEQUENCE import SEQUENCE
 from ast.SEQUENCE import SEQUENCE
 from build import Input
 
+# Evaluator follows the Visitor pattern from class
+# UBC CPSC 410
+
 class Evaluator(Visitor):
   symbolTable = None
 
