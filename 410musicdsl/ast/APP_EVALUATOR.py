@@ -1,5 +1,7 @@
 from ast.APP_VISITOR import Visitor
 from ast.COMPOSITION import COMPOSITION
+from ast.BAR import BAR
+from ast.SEQUENCE import SEQUENCE
 from ast.SEQUENCE import SEQUENCE
 from build import Input
 
@@ -80,10 +82,14 @@ class Evaluator(Visitor):
     seq = Evaluator.symbolTable[e.name.value]
     measures = []
     for measure in seq.measures:
-      if (type(measure) is SEQUENCE):
-        print("=====Sequence exists")
       evaluatedMeasure = measure.accept(self)
-      measures.append(evaluatedMeasure)
+      if isinstance(measure, BAR):
+        measures.append(evaluatedMeasure)
+      else:
+        for m in evaluatedMeasure:
+          measures.append(m)
+    for m in measures:
+      print("play MEASURE: ", m)
     self.input.setBodyBars(measures)
   
   def visit_sequence(self, e)-> None:
