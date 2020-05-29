@@ -100,8 +100,6 @@ class Evaluator(Visitor):
       for measure in seq.measures:
         evaluatedMeasure = measure.accept(self)
         measures.append(evaluatedMeasure)
-    for m in measures:
-      print("MEASURE: ", m)
     return measures
       
   def visit_set_chord(self, e)-> None: 
