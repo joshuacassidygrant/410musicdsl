@@ -8,7 +8,7 @@ from output import createOutputs
 def open_file():
     # For accessing the file in a folder contained in the current folder
     fileDir = os.path.dirname(os.path.realpath('__file__'))
-    filename = os.path.join(fileDir, '410musicdsl/data/test-input-new.mz')
+    filename = os.path.join(fileDir, '410musicdsl/410musicdsl/data/test-input-new.mz')
     return open(filename, "r").read()
 
 def main():
