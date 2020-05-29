@@ -7,9 +7,10 @@ Arranged by: "Eduardo Garza"
 Key: "Cmaj"
 
 chord C = {C3-E4-G4}
+chord C2 = {C3-E3-G3}
 
 seq main2 = [
-  |T| {C}w || 
+  |T| {C}h, {C2}h || 
 -
   |T| G4q, F4q, E4q, D4q ||
 -
